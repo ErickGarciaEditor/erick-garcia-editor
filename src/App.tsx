@@ -160,10 +160,119 @@ const faqByLang = {
   },
 } as const;
 
+
+const siteProjectsByLang = {
+  pt: {
+    eyebrow: 'Projetos de sites',
+    title: 'Sites criados para apresentar melhor o trabalho do cliente.',
+    text: 'Projetos com domínio próprio, visual responsivo e caminho claro para contato. Cada card mostra o contexto do site e o link para visitar.',
+    labels: {
+      problem: 'Problema',
+      strategy: 'Estratégia',
+      pages: 'Páginas',
+      visit: 'Visitar site',
+      empty: 'Nenhum projeto publicado ainda',
+      emptyTitle: 'Os sites autorizados entram aqui.',
+      emptyText: 'Quando você separar os projetos reais, vamos cadastrar nome do cliente, segmento, tipo de site, problema, estratégia, funcionalidades e link para visitar.',
+      desktopFallback: 'Print desktop pendente',
+      mobileFallback: 'Print mobile pendente',
+    },
+    projects: [
+      {
+        segment: 'Beleza e estética',
+        type: 'Site profissional',
+        problem: 'O projeto precisava apresentar o trabalho de forma mais organizada e facilitar o contato pelo site.',
+        strategy: 'Foi criada uma presença online simples, direta e com domínio próprio para fortalecer a apresentação do negócio.',
+        pages: 'Site publicado com estrutura institucional',
+        features: ['Domínio próprio', 'Design responsivo', 'Contato direto', 'Apresentação do serviço'],
+      },
+      {
+        segment: 'Representações comerciais',
+        type: 'Site institucional',
+        problem: 'O cliente precisava ter um site próprio para apresentar sua atuação e facilitar o acesso às informações principais.',
+        strategy: 'A estrutura foi pensada para apresentar o negócio com clareza, usando uma navegação simples e caminho direto para contato.',
+        pages: 'Site publicado com estrutura institucional',
+        features: ['Domínio próprio', 'Design responsivo', 'Contato direto', 'Site institucional'],
+      },
+    ],
+  },
+
+  en: {
+    eyebrow: 'Website projects',
+    title: 'Websites created to present the client’s work better.',
+    text: 'Projects with custom domain, responsive design and a clear contact path. Each card shows the website context and the link to visit it.',
+    labels: {
+      problem: 'Problem',
+      strategy: 'Strategy',
+      pages: 'Pages',
+      visit: 'Visit website',
+      empty: 'No published project yet',
+      emptyTitle: 'Authorized websites will appear here.',
+      emptyText: 'When you separate the real projects, we will add the client name, segment, website type, problem, strategy, features and visit link.',
+      desktopFallback: 'Desktop screenshot pending',
+      mobileFallback: 'Mobile screenshot pending',
+    },
+    projects: [
+      {
+        segment: 'Beauty and aesthetics',
+        type: 'Professional website',
+        problem: 'The project needed to present the work in a more organized way and make website contact easier.',
+        strategy: 'A simple and direct online presence with a custom domain was created to strengthen the business presentation.',
+        pages: 'Website published with an institutional structure',
+        features: ['Custom domain', 'Responsive design', 'Direct contact', 'Service presentation'],
+      },
+      {
+        segment: 'Commercial representation',
+        type: 'Business website',
+        problem: 'The client needed a website to present the business and make key information easier to access.',
+        strategy: 'The structure was designed to present the business clearly, with simple navigation and a direct contact path.',
+        pages: 'Website published with an institutional structure',
+        features: ['Custom domain', 'Responsive design', 'Direct contact', 'Business website'],
+      },
+    ],
+  },
+
+  es: {
+    eyebrow: 'Proyectos de sitios',
+    title: 'Sitios creados para presentar mejor el trabajo del cliente.',
+    text: 'Proyectos con dominio propio, diseño responsivo y camino claro para contacto. Cada tarjeta muestra el contexto del sitio y el enlace para visitarlo.',
+    labels: {
+      problem: 'Problema',
+      strategy: 'Estrategia',
+      pages: 'Páginas',
+      visit: 'Visitar sitio',
+      empty: 'Ningún proyecto publicado todavía',
+      emptyTitle: 'Los sitios autorizados aparecerán aquí.',
+      emptyText: 'Cuando separes los proyectos reales, vamos a registrar nombre del cliente, segmento, tipo de sitio, problema, estrategia, funcionalidades y enlace para visitar.',
+      desktopFallback: 'Captura desktop pendiente',
+      mobileFallback: 'Captura mobile pendiente',
+    },
+    projects: [
+      {
+        segment: 'Belleza y estética',
+        type: 'Sitio profesional',
+        problem: 'El proyecto necesitaba presentar el trabajo de forma más organizada y facilitar el contacto por el sitio.',
+        strategy: 'Se creó una presencia online simple, directa y con dominio propio para fortalecer la presentación del negocio.',
+        pages: 'Sitio publicado con estructura institucional',
+        features: ['Dominio propio', 'Diseño responsivo', 'Contacto directo', 'Presentación del servicio'],
+      },
+      {
+        segment: 'Representaciones comerciales',
+        type: 'Sitio institucional',
+        problem: 'El cliente necesitaba un sitio propio para presentar su actividad y facilitar el acceso a la información principal.',
+        strategy: 'La estructura fue pensada para presentar el negocio con claridad, usando una navegación simple y un camino directo al contacto.',
+        pages: 'Sitio publicado con estructura institucional',
+        features: ['Dominio propio', 'Diseño responsivo', 'Contacto directo', 'Sitio institucional'],
+      },
+    ],
+  },
+} as const;
+
 export default function App() {
   const currentPage = getCurrentPage();
   const lang = getAppLang();
   const faq = faqByLang[lang];
+  const siteProjectsCopy = siteProjectsByLang[lang];
 
   if (currentPage === 'privacy') {
     return <PrivacyPolicy />;
@@ -362,79 +471,77 @@ export default function App() {
         <section className="section" id="projetos">
           <div className="container">
             <div className="section-heading">
-              <p className="eyebrow">Projetos de sites</p>
-              <h2>Sites criados para apresentar melhor o trabalho do cliente.</h2>
-              <p>
-                Projetos com domínio próprio, visual responsivo e caminho claro para contato.
-                Cada card mostra o contexto do site e o link para visitar.
-              </p>
+              <p className="eyebrow">{siteProjectsCopy.eyebrow}</p>
+              <h2>{siteProjectsCopy.title}</h2>
+              <p>{siteProjectsCopy.text}</p>
             </div>
 
             {siteProjects.length > 0 ? (
               <div className="site-projects-grid">
-                {siteProjects.map((project) => (
-                  <article className="site-project-card" key={project.client}>
-                    <div className="site-project-preview">
-                      <div className="desktop-preview">
-                        <SafeImage
-                          src={project.desktopImage}
-                          alt={`Print desktop do site ${project.client}`}
-                          fallbackLabel="Print desktop pendente"
-                        />
+                {siteProjects.map((project, projectIndex) => {
+                  const projectCopy = siteProjectsCopy.projects[projectIndex];
+
+                  return (
+                    <article className="site-project-card" key={project.client}>
+                      <div className="site-project-preview">
+                        <div className="desktop-preview">
+                          <SafeImage
+                            src={project.desktopImage}
+                            alt={`Print desktop do site ${project.client}`}
+                            fallbackLabel={siteProjectsCopy.labels.desktopFallback}
+                          />
+                        </div>
+
+                        <div className="mobile-preview">
+                          <SafeImage
+                            src={project.mobileImage}
+                            alt={`Print mobile do site ${project.client}`}
+                            fallbackLabel={siteProjectsCopy.labels.mobileFallback}
+                          />
+                        </div>
                       </div>
 
-                      <div className="mobile-preview">
-                        <SafeImage
-                          src={project.mobileImage}
-                          alt={`Print mobile do site ${project.client}`}
-                          fallbackLabel="Print mobile pendente"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="site-project-card__top">
-                      <span>{project.type}</span>
-                      <h3>{project.client}</h3>
-                      <p>{project.segment}</p>
-                    </div>
-
-                    <div className="site-project-card__body">
-                      <div>
-                        <strong>Problema</strong>
-                        <p>{project.problem}</p>
+                      <div className="site-project-card__top">
+                        <span>{projectCopy?.type ?? project.type}</span>
+                        <h3>{project.client}</h3>
+                        <p>{projectCopy?.segment ?? project.segment}</p>
                       </div>
 
-                      <div>
-                        <strong>Estratégia</strong>
-                        <p>{project.strategy}</p>
+                      <div className="site-project-card__body">
+                        <div>
+                          <strong>{siteProjectsCopy.labels.problem}</strong>
+                          <p>{projectCopy?.problem ?? project.problem}</p>
+                        </div>
+
+                        <div>
+                          <strong>{siteProjectsCopy.labels.strategy}</strong>
+                          <p>{projectCopy?.strategy ?? project.strategy}</p>
+                        </div>
+
+                        <div>
+                          <strong>{siteProjectsCopy.labels.pages}</strong>
+                          <p>{projectCopy?.pages ?? project.pages}</p>
+                        </div>
                       </div>
 
-                      <div>
-                        <strong>Páginas</strong>
-                        <p>{project.pages}</p>
-                      </div>
-                    </div>
+                      <ul className="site-project-features">
+                        {(projectCopy?.features ?? project.features).map((feature) => (
+                          <li key={feature}>{feature}</li>
+                        ))}
+                      </ul>
 
-                    <ul className="site-project-features">
-                      {project.features.map((feature) => (
-                        <li key={feature}>{feature}</li>
-                      ))}
-                    </ul>
-
-                    <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
-                      Visitar site
-                    </a>
-                  </article>
-                ))}
+                      <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
+                        {siteProjectsCopy.labels.visit}
+                      </a>
+                    </article>
+                  );
+                })}
               </div>
             ) : (
               <div className="empty-projects">
-                <span>Nenhum projeto publicado ainda</span>
-                <h3>Os sites autorizados entram aqui.</h3>
-                <p>
-                  Quando você separar os projetos reais, vamos cadastrar nome do cliente, segmento,
-                  tipo de site, problema, estratégia, funcionalidades e link para visitar.
-                </p>
+                <span>{siteProjectsCopy.labels.empty}</span>
+                <h3>{siteProjectsCopy.labels.emptyTitle}</h3>
+                <p>{siteProjectsCopy.labels.emptyText}</p>
               </div>
             )}
           </div>
