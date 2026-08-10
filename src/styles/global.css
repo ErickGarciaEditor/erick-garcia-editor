@@ -1677,3 +1677,22 @@ summary {
     max-width: 100%;
   }
 }
+
+/* Etapa 35 — ajuste da quebra do título do FAQ */
+
+@media (min-width: 1121px) {
+  .faq-grid {
+    grid-template-columns: minmax(520px, 0.9fr) minmax(420px, 1fr);
+    gap: 44px;
+  }
+
+  .faq-grid .section-heading h2 {
+    max-width: 560px;
+    font-size: clamp(3.4rem, 3.8vw, 4rem);
+    line-height: 0.96;
+  }
+
+  .faq-grid .section-heading p:not(.eyebrow) {
+    max-width: 560px;
+  }
+}
