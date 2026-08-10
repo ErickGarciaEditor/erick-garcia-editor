@@ -200,6 +200,139 @@ const translations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
     'Enviar pelo WhatsApp': 'Enviar por WhatsApp',
     'Atendimento em todo o Brasil': 'Atención internacional',
   },
+
+};
+
+function normalizeText(value: string) {
+  return value.replace(/\s+/g, ' ').trim();
+}
+
+const extraTranslations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
+  en: {
+    'PARA QUEM É': 'WHO IT IS FOR',
+    'LO QUE HAGO': 'WHAT I DO',
+    'O QUE EU FAÇO': 'WHAT I DO',
+
+    'Empresas': 'Businesses',
+    'Profissionais': 'Professionals',
+    'Criadores': 'Creators',
+    'Influenciadores': 'Influencers',
+    'Negócios locais': 'Local businesses',
+
+    'Escolha o que você precisa agora.': 'Choose what you need right now.',
+    'Redes sociais, vídeos e sites podem ser contratados separadamente ou combinados em uma proposta única.': 'Social media, videos and websites can be hired separately or combined into one proposal.',
+
+    'Organizo perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.': 'I organize your profile, calendar, posts, Reels, captions and publishing so your brand stays active online.',
+    'Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.': 'I turn recordings into ready-to-post clips, with captions, color adjustment, pacing and visual finishing.',
+    'Crio landing pages e sites institucionais para apresentar seu trabalho e levar o cliente até o WhatsApp.': 'I create landing pages and business websites to present your work and guide visitors to WhatsApp.',
+
+    'Trabalhos reais, com participação clara.': 'Real work, with clear responsibility.',
+    'Alguns projetos em que atuei com edição, publicação, captação ou organização de conteúdo. Cada case mostra minha parte no trabalho.': 'Some projects where I worked with editing, publishing, recording or content organization. Each case shows exactly what I did.',
+
+    'Sites criados para apresentar melhor o trabalho do cliente.': 'Websites created to present the client’s work better.',
+    'Você sabe por onde começar antes de pedir proposta.': 'You know where to start before requesting a proposal.',
+    'Perguntas antes de pedir orçamento.': 'Questions before requesting a quote.',
+    'Me conte o que você precisa.': 'Tell me what you need.',
+
+    'Recebimento dos vídeos preparados pelo cliente': 'Receiving videos prepared by the client',
+    'Tratamento visual': 'Visual treatment',
+    'Preparação dos arquivos': 'File preparation',
+    'Ajuste básico de cor': 'Basic color adjustment',
+    'Inclusão de música quando necessária': 'Music added when needed',
+    'Programação': 'Scheduling',
+    'Seleção dos melhores trechos': 'Selecting the best clips',
+    'Criação de diversos cortes': 'Creating several short clips',
+    'Edição': 'Editing',
+    'Gravação presencial das pregações': 'On-site sermon recording',
+    'Captação de aproximadamente 10 a 15 minutos': 'Recording approximately 10 to 15 minutes',
+    'Vídeos com aproximadamente 1 minuto e 30 segundos a 1 minuto e 50 segundos': 'Videos around 1:30 to 1:50 long',
+
+    'Durante a atuação de Erick, o perfil passou de aproximadamente 50 mil para 100 mil seguidores.': 'During Erick’s work, the profile went from approximately 50 thousand to 100 thousand followers.',
+    'O crescimento posterior do perfil não deve ser apresentado como resultado da atuação de Erick.': 'The profile’s later growth should not be presented as a result of Erick’s work.',
+    'Roteiros, gravação, legendagem inserida nos vídeos, capas, textos das publicações e direcionamento dos horários são fornecidos pelo cliente. A atuação de Erick concentra-se no acabamento visual e na publicação multiplataforma.': 'Scripts, recordings, captions inserted in videos, covers, post texts and posting times are provided by the client. Erick’s work focuses on visual finishing and multi-platform publishing.',
+
+    'Edição e Publicação': 'Editing and Publishing',
+    'Social Media Essencial': 'Essential Social Media',
+    'Social Media Completo': 'Complete Social Media',
+    'Landing Page Profissional': 'Professional Landing Page',
+    'Site Institucional': 'Business Website',
+    'Captação Presencial': 'On-site Recording',
+
+    'A partir de R$700 por mês': 'From US$150 per month',
+    'A partir de R$1.200 por mês': 'From US$250 per month',
+    'A partir de R$1.800 por mês': 'From US$380 per month',
+    'A partir de R$1.500 por projeto': 'From US$300 per project',
+    'A partir de R$2.500 por projeto': 'From US$500 per project',
+    'A partir de R$400 por diária curta': 'From US$85 per short session',
+
+    'Atendimento em todo o Brasil': 'Available worldwide',
+    '@erickgarciaeditor': '@erickgarciaeditor',
+    'Política de Privacidade': 'Privacy Policy',
+    'Termos de Uso': 'Terms of Use'
+  },
+
+  es: {
+    'PARA QUEM É': 'PARA QUIÉN ES',
+    'WHAT I DO': 'LO QUE HAGO',
+    'O QUE EU FAÇO': 'LO QUE HAGO',
+
+    'Empresas': 'Empresas',
+    'Profissionais': 'Profesionales',
+    'Criadores': 'Creadores',
+    'Influenciadores': 'Influencers',
+    'Negócios locais': 'Negocios locales',
+
+    'Escolha o que você precisa agora.': 'Elige lo que necesitas ahora.',
+    'Redes sociais, vídeos e sites podem ser contratados separadamente ou combinados em uma proposta única.': 'Redes sociales, videos y sitios web pueden contratarse por separado o combinarse en una sola propuesta.',
+
+    'Organizo perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.': 'Organizo tu perfil, calendario, posts, Reels, textos y publicaciones para que tu marca mantenga presencia en redes.',
+    'Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.': 'Transformo grabaciones en cortes listos para publicar, con subtítulos, ajuste de color, ritmo y acabado visual.',
+    'Crio landing pages e sites institucionais para apresentar seu trabalho e levar o cliente até o WhatsApp.': 'Creo landing pages y sitios profesionales para presentar tu trabajo y llevar al cliente hasta WhatsApp.',
+
+    'Trabalhos reais, com participação clara.': 'Trabajos reales, con participación clara.',
+    'Alguns projetos em que atuei com edição, publicação, captação ou organização de conteúdo. Cada case mostra minha parte no trabalho.': 'Algunos proyectos donde trabajé con edición, publicación, grabación u organización de contenido. Cada caso muestra exactamente lo que hice.',
+
+    'Sites criados para apresentar melhor o trabalho do cliente.': 'Sitios creados para presentar mejor el trabajo del cliente.',
+    'Você sabe por onde começar antes de pedir proposta.': 'Sabes por dónde empezar antes de pedir una propuesta.',
+    'Perguntas antes de pedir orçamento.': 'Preguntas antes de pedir presupuesto.',
+    'Me conte o que você precisa.': 'Cuéntame lo que necesitas.',
+
+    'Recebimento dos vídeos preparados pelo cliente': 'Recepción de videos preparados por el cliente',
+    'Tratamento visual': 'Tratamiento visual',
+    'Preparação dos arquivos': 'Preparación de archivos',
+    'Ajuste básico de cor': 'Ajuste básico de color',
+    'Inclusão de música quando necessária': 'Música incluida cuando es necesario',
+    'Programação': 'Programación',
+    'Seleção dos melhores trechos': 'Selección de los mejores fragmentos',
+    'Criação de diversos cortes': 'Creación de varios cortes',
+    'Edição': 'Edición',
+    'Gravação presencial das pregações': 'Grabación presencial de las predicaciones',
+    'Captação de aproximadamente 10 a 15 minutos': 'Grabación de aproximadamente 10 a 15 minutos',
+    'Vídeos com aproximadamente 1 minuto e 30 segundos a 1 minuto e 50 segundos': 'Videos de aproximadamente 1:30 a 1:50 minutos',
+
+    'Durante a atuação de Erick, o perfil passou de aproximadamente 50 mil para 100 mil seguidores.': 'Durante el trabajo de Erick, el perfil pasó de aproximadamente 50 mil a 100 mil seguidores.',
+    'O crescimento posterior do perfil não deve ser apresentado como resultado da atuação de Erick.': 'El crecimiento posterior del perfil no debe presentarse como resultado del trabajo de Erick.',
+    'Roteiros, gravação, legendagem inserida nos vídeos, capas, textos das publicações e direcionamento dos horários são fornecidos pelo cliente. A atuação de Erick concentra-se no acabamento visual e na publicação multiplataforma.': 'Guiones, grabación, subtítulos insertados en los videos, portadas, textos de publicaciones y horarios son proporcionados por el cliente. El trabajo de Erick se concentra en el acabado visual y la publicación multiplataforma.',
+
+    'Edição e Publicação': 'Edición y Publicación',
+    'Social Media Essencial': 'Social Media Esencial',
+    'Social Media Completo': 'Social Media Completo',
+    'Landing Page Profissional': 'Landing Page Profesional',
+    'Site Institucional': 'Sitio Profesional',
+    'Captação Presencial': 'Grabación Presencial',
+
+    'A partir de R$700 por mês': 'Desde €140 al mes',
+    'A partir de R$1.200 por mês': 'Desde €230 al mes',
+    'A partir de R$1.800 por mês': 'Desde €350 al mes',
+    'A partir de R$1.500 por projeto': 'Desde €280 por proyecto',
+    'A partir de R$2.500 por projeto': 'Desde €460 por proyecto',
+    'A partir de R$400 por diária curta': 'Desde €75 por jornada corta',
+
+    'Atendimento em todo o Brasil': 'Atención internacional',
+    '@erickgarciaeditor': '@erickgarciaeditor',
+    'Política de Privacidade': 'Política de Privacidad',
+    'Termos de Uso': 'Términos de Uso'
+  }
 };
 
 function detectLanguage(): Lang {
@@ -354,7 +487,8 @@ function applyTranslations(lang: Lang) {
       continue;
     }
 
-    const translated = dictionary?.[trimmed];
+    const normalized = normalizeText(trimmed);
+    const translated = dictionary?.[trimmed] ?? dictionary?.[normalized] ?? extraTranslations[lang]?.[normalized];
 
     if (translated) {
       node.textContent = `${leading}${translated}${trailing}`;
@@ -372,7 +506,24 @@ export function LanguageLayer() {
   useEffect(() => {
     localStorage.setItem('site-lang', lang);
     setPathForLanguage(lang);
-    window.setTimeout(() => applyTranslations(lang), 0);
+
+    const run = () => applyTranslations(lang);
+
+    window.setTimeout(run, 0);
+    window.setTimeout(run, 120);
+    window.setTimeout(run, 500);
+
+    const observer = new MutationObserver(() => {
+      window.setTimeout(run, 0);
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    });
+
+    return () => observer.disconnect();
   }, [lang]);
 
   const label = useMemo(() => {
