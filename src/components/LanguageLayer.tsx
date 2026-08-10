@@ -657,6 +657,32 @@ function setPathForLanguage(lang: Lang) {
   }
 }
 
+function translateAttributes(lang: Lang) {
+  if (lang === 'pt') return;
+
+  const dictionary = {
+    ...(translations[lang] ?? {}),
+    ...(extraTranslations[lang] ?? {}),
+    ...(runtimeOverrides[lang] ?? {}),
+  };
+
+  const elements = document.querySelectorAll<HTMLElement>('input, textarea, option, select, button, a, label');
+
+  elements.forEach((element) => {
+    ['placeholder', 'value', 'aria-label', 'title'].forEach((attr) => {
+      const current = element.getAttribute(attr);
+      if (!current) return;
+
+      const normalized = normalizeText(current);
+      const translated = dictionary[normalized];
+
+      if (translated) {
+        element.setAttribute(attr, translated);
+      }
+    });
+  });
+}
+
 function applyTranslations(lang: Lang) {
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
   document.body.dataset.lang = lang;
@@ -735,6 +761,8 @@ function applyTranslations(lang: Lang) {
       node.textContent = `${leading}${translated}${trailing}`;
     }
   }
+
+  translateAttributes(lang);
 }
 
 export function LanguageLayer() {
