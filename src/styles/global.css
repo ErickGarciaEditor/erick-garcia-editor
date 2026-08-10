@@ -2197,3 +2197,44 @@ summary {
     display: none;
   }
 }
+
+.header-language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.22rem;
+  border: 1px solid rgba(246, 238, 232, 0.14);
+  border-radius: 999px;
+  background: rgba(246, 238, 232, 0.04);
+}
+
+.header-language-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 1.9rem;
+  padding: 0 0.48rem;
+  border-radius: 999px;
+  color: rgba(246, 238, 232, 0.72);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.header-language-switch a:hover,
+.header-language-switch a:focus-visible {
+  color: var(--text);
+  background: rgba(246, 238, 232, 0.08);
+}
+
+/* Desativa o seletor flutuante antigo sem remover lógica agora */
+.language-switcher {
+  display: none !important;
+}
+
+@media (max-width: 1120px) {
+  .header-language-switch {
+    display: none;
+  }
+}

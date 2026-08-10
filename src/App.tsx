@@ -941,6 +941,11 @@ export default function App() {
             <a href="#valores">{topContent.nav.pricing}</a>
             <a href="#sobre">{topContent.nav.about}</a>
             <a href="#faq">{topContent.nav.faq}</a>
+            <span className="header-language-switch" aria-label="Selecionar idioma">
+              <a href="/">PT</a>
+              <a href="/en">EN</a>
+              <a href="/es">ES</a>
+            </span>
           </nav>
 
           <HeaderLanguageSwitch lang={lang} />
