@@ -143,8 +143,23 @@ function getCurrentPage() {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
 
   if (path === '/' || path === '/pt' || path === '/en' || path === '/es') return 'home';
-  if (path === '/politica-de-privacidade') return 'privacy';
-  if (path === '/termos-de-uso') return 'terms';
+
+  if (
+    path === '/politica-de-privacidade' ||
+    path === '/en/politica-de-privacidade' ||
+    path === '/es/politica-de-privacidade'
+  ) {
+    return 'privacy';
+  }
+
+  if (
+    path === '/termos-de-uso' ||
+    path === '/en/termos-de-uso' ||
+    path === '/es/termos-de-uso'
+  ) {
+    return 'terms';
+  }
+
   if (path === '/404') return '404';
 
   return '404';
