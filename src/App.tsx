@@ -38,8 +38,132 @@ function getCurrentPage() {
   return '404';
 }
 
+type AppLang = 'pt' | 'en' | 'es';
+
+function getAppLang(): AppLang {
+  const firstSegment = window.location.pathname.split('/').filter(Boolean)[0];
+
+  if (firstSegment === 'en' || firstSegment === 'es') {
+    return firstSegment;
+  }
+
+  return 'pt';
+}
+
+const faqByLang = {
+  pt: {
+    eyebrow: 'Dúvidas comuns',
+    title: 'Perguntas antes de pedir orçamento.',
+    text: 'Separei as principais dúvidas para você entender melhor como funciona o trabalho antes de chamar no WhatsApp.',
+    items: [
+      {
+        question: 'Você atende clientes de outras cidades?',
+        answer: 'Sim. O atendimento pode ser remoto para clientes de todo o Brasil.',
+      },
+      {
+        question: 'Como funciona o social media à distância?',
+        answer: 'Você envia os materiais, informações e direcionamentos. A partir disso, eu organizo planejamento, edição, publicação ou acompanhamento conforme a proposta.',
+      },
+      {
+        question: 'O cliente precisa gravar os vídeos?',
+        answer: 'Em trabalhos remotos, normalmente sim. Eu posso orientar a gravação. Quando for presencial, a captação é orçada separadamente.',
+      },
+      {
+        question: 'Você faz roteiros?',
+        answer: 'Sim, quando isso estiver dentro do plano ou da proposta combinada.',
+      },
+      {
+        question: 'Você trabalha com Instagram, TikTok e YouTube?',
+        answer: 'Sim. O trabalho pode envolver uma ou mais plataformas, conforme a necessidade.',
+      },
+      {
+        question: 'Existe garantia de seguidores?',
+        answer: 'Não. O trabalho melhora organização, qualidade e consistência, mas não promete seguidores, vendas ou viralização garantida.',
+      },
+      {
+        question: 'Quanto custa um site?',
+        answer: 'Landing pages partem de R$1.900 e sites institucionais partem de R$3.200. O valor final depende do escopo.',
+      },
+    ],
+  },
+
+  en: {
+    eyebrow: 'Common questions',
+    title: 'Questions before requesting a quote.',
+    text: 'I separated the main questions so you can understand how the work process works before contacting me on WhatsApp.',
+    items: [
+      {
+        question: 'Do you work with clients from other cities?',
+        answer: 'Yes. The service can be remote for clients from any location.',
+      },
+      {
+        question: 'How does remote social media work?',
+        answer: 'You send the materials, information and direction. From there, I organize planning, editing, publishing or support according to the proposal.',
+      },
+      {
+        question: 'Does the client need to record the videos?',
+        answer: 'For remote projects, usually yes. I can guide the recording process. For on-site work, recording is quoted separately.',
+      },
+      {
+        question: 'Do you write scripts?',
+        answer: 'Yes, when scripts are included in the plan or combined proposal.',
+      },
+      {
+        question: 'Do you work with Instagram, TikTok and YouTube?',
+        answer: 'Yes. The work can involve one or more platforms depending on the project needs.',
+      },
+      {
+        question: 'Is there a guarantee of followers?',
+        answer: 'No. The work improves organization, quality and consistency, but does not promise guaranteed followers, sales or viral results.',
+      },
+      {
+        question: 'How much does a website cost?',
+        answer: 'Landing pages start at US$1,000 and business websites start at US$1,700. The final price depends on the scope.',
+      },
+    ],
+  },
+
+  es: {
+    eyebrow: 'Preguntas frecuentes',
+    title: 'Preguntas antes de pedir presupuesto.',
+    text: 'Separé las principales dudas para que entiendas mejor cómo funciona el trabajo antes de llamar por WhatsApp.',
+    items: [
+      {
+        question: '¿Atiendes clientes de otras ciudades?',
+        answer: 'Sí. La atención puede ser remota para clientes de cualquier ubicación.',
+      },
+      {
+        question: '¿Cómo funciona el social media a distancia?',
+        answer: 'Envías los materiales, información y dirección. A partir de eso, organizo planificación, edición, publicación o acompañamiento según la propuesta.',
+      },
+      {
+        question: '¿El cliente necesita grabar los videos?',
+        answer: 'En proyectos remotos, normalmente sí. Puedo orientar la grabación. Para trabajos presenciales, la grabación se cotiza por separado.',
+      },
+      {
+        question: '¿Haces guiones?',
+        answer: 'Sí, cuando los guiones estén incluidos en el plan o en la propuesta combinada.',
+      },
+      {
+        question: '¿Trabajas con Instagram, TikTok y YouTube?',
+        answer: 'Sí. El trabajo puede incluir una o más plataformas según la necesidad del proyecto.',
+      },
+      {
+        question: '¿Hay garantía de seguidores?',
+        answer: 'No. El trabajo mejora organización, calidad y consistencia, pero no promete seguidores, ventas o viralización garantizada.',
+      },
+      {
+        question: '¿Cuánto cuesta un sitio web?',
+        answer: 'Las landing pages empiezan desde €900 y los sitios profesionales desde €1.500. El valor final depende del alcance.',
+      },
+    ],
+  },
+} as const;
+
 export default function App() {
   const currentPage = getCurrentPage();
+  const lang = getAppLang();
+  const faq = faqByLang[lang];
 
   if (currentPage === 'privacy') {
     return <PrivacyPolicy />;
@@ -374,61 +498,18 @@ export default function App() {
         <section className="section section-dark" id="faq">
           <div className="container faq-grid">
             <div className="section-heading">
-              <p className="eyebrow">Dúvidas comuns</p>
-              <h2>Perguntas antes de pedir orçamento.</h2>
-              <p>
-                Separei as principais dúvidas para você entender melhor como funciona o trabalho
-                antes de chamar no WhatsApp.
-              </p>
+              <p className="eyebrow">{faq.eyebrow}</p>
+              <h2>{faq.title}</h2>
+              <p>{faq.text}</p>
             </div>
 
             <div className="faq-list">
-              <details>
-                <summary>Você atende clientes de outras cidades?</summary>
-                <p>Sim. O atendimento pode ser remoto para clientes de todo o Brasil.</p>
-              </details>
-
-              <details>
-                <summary>Como funciona o social media à distância?</summary>
-                <p>
-                  Você envia os materiais, informações e direcionamentos. A partir disso, eu organizo
-                  planejamento, edição, publicação ou acompanhamento conforme a proposta.
-                </p>
-              </details>
-
-              <details>
-                <summary>O cliente precisa gravar os vídeos?</summary>
-                <p>
-                  Em trabalhos remotos, normalmente sim. Eu posso orientar a gravação. Quando for
-                  presencial, a captação é orçada separadamente.
-                </p>
-              </details>
-
-              <details>
-                <summary>Você faz roteiros?</summary>
-                <p>Sim, quando isso estiver dentro do plano ou da proposta combinada.</p>
-              </details>
-
-              <details>
-                <summary>Você trabalha com Instagram, TikTok e YouTube?</summary>
-                <p>Sim. O trabalho pode envolver uma ou mais plataformas, conforme a necessidade.</p>
-              </details>
-
-              <details>
-                <summary>Existe garantia de seguidores?</summary>
-                <p>
-                  Não. O trabalho melhora organização, qualidade e consistência, mas não promete
-                  seguidores, vendas ou viralização garantida.
-                </p>
-              </details>
-
-              <details>
-                <summary>Quanto custa um site?</summary>
-                <p>
-                  Landing pages partem de R$1.500 e sites institucionais partem de R$2.500. O valor
-                  final depende do escopo.
-                </p>
-              </details>
+              {faq.items.map((item) => (
+                <details key={item.question}>
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>
