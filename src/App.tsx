@@ -185,7 +185,7 @@ export default function App() {
                   <div className="case-media-panel" aria-label={`Mídias do case ${item.clientName}`}>
                     <div className="case-video-card">
                       <span>Vídeo</span>
-                      {item.video ? <SafeVideo src={item.video.src} label={item.video.label} /> : null}
+                      {item.video ? <SafeVideo src={item.video.src} label={item.video.label} poster={item.metrics[0]?.image} /> : null}
                     </div>
 
                     <div className="case-metrics">
