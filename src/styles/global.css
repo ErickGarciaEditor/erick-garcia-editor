@@ -2036,3 +2036,71 @@ summary {
     font-size: clamp(1.72rem, 8vw, 2.25rem);
   }
 }
+
+/* Etapa 39 — quebras editoriais de texto */
+
+.copy-line {
+  max-width: none !important;
+}
+
+.copy-line span {
+  display: block;
+  max-width: 100%;
+}
+
+/* Desktop: frases mais retas, com quebra controlada */
+@media (min-width: 1121px) {
+  .copy-line {
+    width: fit-content;
+    max-width: 980px !important;
+  }
+
+  .copy-line span {
+    width: max-content;
+    max-width: 100%;
+  }
+}
+
+/* Tablet: evita texto espremido em blocos altos */
+@media (min-width: 761px) and (max-width: 1120px) {
+  .copy-line {
+    max-width: 720px !important;
+  }
+
+  .copy-line span {
+    display: inline;
+  }
+
+  .copy-line span + span::before {
+    content: ' ';
+  }
+}
+
+/* Celular: linhas menos quebradas e mais humanas */
+@media (max-width: 760px) {
+  .copy-line {
+    max-width: 36ch !important;
+  }
+
+  .copy-line span {
+    display: inline;
+  }
+
+  .copy-line span + span::before {
+    content: ' ';
+  }
+}
+
+/* Celular médio/grande: permite linhas um pouco mais longas */
+@media (min-width: 390px) and (max-width: 760px) {
+  .copy-line {
+    max-width: 38ch !important;
+  }
+}
+
+/* Celular pequeno: não força quebra artificial demais */
+@media (max-width: 360px) {
+  .copy-line {
+    max-width: 32ch !important;
+  }
+}
