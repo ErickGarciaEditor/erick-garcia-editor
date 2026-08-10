@@ -699,6 +699,51 @@ const casesByLang = {
   },
 } as const;
 
+
+const finalBlocksByLang = {
+  pt: {
+    quote: {
+      eyebrow: 'Orçamento',
+      title: 'Me conte o que você precisa.',
+      text: 'Preencha as informações principais para eu entender se você precisa de social media, edição de vídeos, site ou uma proposta combinada.',
+    },
+    footer: {
+      brandLine: 'Social Media e Sites',
+      privacy: 'Política de Privacidade',
+      terms: 'Termos de Uso',
+      location: 'Atendimento em todo o Brasil',
+    },
+  },
+
+  en: {
+    quote: {
+      eyebrow: 'Quote',
+      title: 'Tell me what you need.',
+      text: 'Fill in the main information so I can understand whether you need social media, video editing, a website or a combined proposal.',
+    },
+    footer: {
+      brandLine: 'Social Media and Websites',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Use',
+      location: 'Available worldwide',
+    },
+  },
+
+  es: {
+    quote: {
+      eyebrow: 'Presupuesto',
+      title: 'Cuéntame lo que necesitas.',
+      text: 'Completa la información principal para entender si necesitas social media, edición de videos, sitio web o una propuesta combinada.',
+    },
+    footer: {
+      brandLine: 'Social Media y Sitios Web',
+      privacy: 'Política de Privacidad',
+      terms: 'Términos de Uso',
+      location: 'Atención internacional',
+    },
+  },
+} as const;
+
 export default function App() {
   const currentPage = getCurrentPage();
   const lang = getAppLang();
@@ -708,6 +753,7 @@ export default function App() {
   const about = aboutByLang[lang];
   const topContent = topContentByLang[lang];
   const casesCopy = casesByLang[lang];
+  const finalBlocks = finalBlocksByLang[lang];
 
   if (currentPage === 'privacy') {
     return <PrivacyPolicy />;
@@ -1044,12 +1090,9 @@ export default function App() {
         <section className="section" id="orcamento">
           <div className="container quote-grid">
             <div className="section-heading">
-              <p className="eyebrow">Orçamento</p>
-              <h2>Me conte o que você precisa.</h2>
-              <p>
-                Preencha as informações principais para eu entender se você precisa de social media,
-                edição de vídeos, site ou uma proposta combinada.
-              </p>
+              <p className="eyebrow">{finalBlocks.quote.eyebrow}</p>
+              <h2>{finalBlocks.quote.title}</h2>
+              <p>{finalBlocks.quote.text}</p>
             </div>
 
             <QuoteForm />
@@ -1062,7 +1105,7 @@ export default function App() {
         <div className="container footer-row">
           <div>
             <strong>Erick Garcia</strong>
-            <span>Social Media e Sites</span>
+            <span>{finalBlocks.footer.brandLine}</span>
           </div>
 
           <div className="footer-links">
@@ -1070,9 +1113,9 @@ export default function App() {
               {contact.instagram}
             </a>
             <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            <a href="/politica-de-privacidade">Política de Privacidade</a>
-            <a href="/termos-de-uso">Termos de Uso</a>
-            <p>Atendimento em todo o Brasil</p>
+            <a href="/politica-de-privacidade">{finalBlocks.footer.privacy}</a>
+            <a href="/termos-de-uso">{finalBlocks.footer.terms}</a>
+            <p>{finalBlocks.footer.location}</p>
           </div>
         </div>
       </footer>
