@@ -13,42 +13,35 @@ const faviconSvg = `<?xml version="1.0" encoding="UTF-8"?>
 
 await writeFile('public/favicon.svg', faviconSvg);
 
-await sharp(Buffer.from(faviconSvg))
-  .resize(180, 180)
-  .png()
-  .toFile('public/apple-touch-icon.png');
-
-await sharp(Buffer.from(faviconSvg))
-  .resize(64, 64)
-  .png()
-  .toFile('public/favicon.png');
-
-await sharp(Buffer.from(faviconSvg))
-  .resize(32, 32)
-  .toFile('public/favicon.ico');
+await sharp(Buffer.from(faviconSvg)).resize(180, 180).png().toFile('public/apple-touch-icon.png');
+await sharp(Buffer.from(faviconSvg)).resize(64, 64).png().toFile('public/favicon.png');
+await sharp(Buffer.from(faviconSvg)).resize(32, 32).toFile('public/favicon.ico');
 
 const photo = await sharp(hero)
-  .resize(520, 650, { fit: 'cover', position: 'center' })
+  .resize(404, 522, {
+    fit: 'cover',
+    position: 'center',
+  })
   .webp({ quality: 84 })
   .toBuffer();
 
-const ogSvg = Buffer.from(`
+const ogBase = Buffer.from(`
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#070707"/>
-      <stop offset="52%" stop-color="#100b0a"/>
+      <stop offset="55%" stop-color="#100b0a"/>
       <stop offset="100%" stop-color="#2a0f0c"/>
     </linearGradient>
-    <radialGradient id="red" cx="80%" cy="25%" r="65%">
-      <stop offset="0%" stop-color="#ff4f3c" stop-opacity="0.32"/>
+    <radialGradient id="red" cx="80%" cy="22%" r="70%">
+      <stop offset="0%" stop-color="#ff4f3c" stop-opacity="0.34"/>
       <stop offset="100%" stop-color="#ff4f3c" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#red)"/>
-  <rect x="54" y="54" width="1092" height="522" rx="46" fill="rgba(255,255,255,0.025)" stroke="rgba(246,238,232,0.12)"/>
+  <rect x="54" y="54" width="1092" height="522" rx="46" fill="#ffffff08" stroke="#f6eee81f"/>
 
   <text x="88" y="148" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#f6eee8">Erick Garcia</text>
   <text x="88" y="184" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="900" letter-spacing="6" fill="#ff4f3c">SOCIAL MEDIA E SITES</text>
@@ -59,11 +52,11 @@ const ogSvg = Buffer.from(`
   <text x="88" y="474" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600" fill="#d9d0ca">Redes sociais e sites para apresentar melhor</text>
   <text x="88" y="514" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600" fill="#d9d0ca">o seu trabalho e facilitar o contato.</text>
 
-  <rect x="742" y="54" width="404" height="522" rx="42" fill="#141212" stroke="rgba(246,238,232,0.14)"/>
+  <rect x="742" y="54" width="404" height="522" rx="42" fill="#141212" stroke="#f6eee824"/>
 </svg>
 `);
 
-await sharp(ogSvg)
+await sharp(ogBase)
   .composite([
     {
       input: photo,
@@ -74,4 +67,4 @@ await sharp(ogSvg)
   .webp({ quality: 82 })
   .toFile('public/assets/brand/og-erick-garcia.webp');
 
-console.log('Brand assets criados.');
+console.log('Favicon e imagem de compartilhamento criados.');
