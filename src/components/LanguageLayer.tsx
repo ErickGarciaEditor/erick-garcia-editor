@@ -335,6 +335,251 @@ const extraTranslations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
   }
 };
 
+
+const runtimeOverrides: Record<Lang, Record<string, string>> = {
+  pt: {},
+
+  en: {
+    "SOCIAL MEDIA E SITES": "SOCIAL MEDIA AND WEBSITES",
+    "Social media, editor de vídeos e criador de sites.": "Social media, video editing and websites.",
+    "Social media, vídeos e sites.": "Social media, videos and websites.",
+    "Cuido das suas redes, edito seus vídeos e crio sites para você mostrar melhor o seu trabalho e facilitar o contato com novos clientes.": "I manage your social media, edit your videos and build websites so your work looks better and new clients can contact you more easily.",
+    "Cuido das suas redes, edito seus vídeos e crio sites para você mostrar melhor": "I manage your social media, edit your videos and build websites so your work looks better",
+    "o seu trabalho e facilitar o contato com novos clientes.": "and new clients can contact you more easily.",
+
+    "Pedir orçamento": "Request a quote",
+    "Ver trabalhos": "View work",
+    "Serviços": "Services",
+    "Trabalhos": "Work",
+    "Sites": "Websites",
+    "Valores": "Pricing",
+    "Sobre": "About",
+    "FAQ": "FAQ",
+
+    "PARA QUEM É": "WHO IT IS FOR",
+    "Empresas": "Businesses",
+    "Profissionais": "Professionals",
+    "Criadores": "Creators",
+    "Influenciadores": "Influencers",
+    "Negócios locais": "Local businesses",
+
+    "O QUE EU FAÇO": "WHAT I DO",
+    "Escolha o que você precisa agora.": "Choose what you need right now.",
+    "Redes sociais, vídeos e sites podem ser contratados separadamente ou combinados em uma proposta única.": "Social media, videos and websites can be hired separately or combined into one proposal.",
+
+    "Social Media": "Social Media",
+    "Organizo perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.": "I organize your profile, calendar, posts, Reels, captions and publishing so your brand stays active online.",
+    "Edição de vídeos": "Video editing",
+    "Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.": "I turn recordings into ready-to-post clips, with captions, color adjustment, pacing and visual finishing.",
+    "Sites profissionais": "Professional websites",
+    "Crio landing pages e sites institucionais para apresentar seu trabalho e levar o cliente até o WhatsApp.": "I create landing pages and business websites to present your work and guide visitors to WhatsApp.",
+
+    "TRABALHOS REAIS": "REAL WORK",
+    "Trabalhos reais, com participação clara.": "Real work, with clear responsibility.",
+    "Alguns projetos em que atuei com edição, publicação, captação ou organização de conteúdo. Cada case mostra minha parte no trabalho.": "Some projects where I worked with editing, publishing, recording or content organization. Each case shows exactly what I did.",
+
+    "CASE AUTORIZADO": "AUTHORIZED CASE",
+    "Padre Fabiano Moura": "Padre Fabiano Moura",
+    "Padre Pedro Henrique": "Padre Pedro Henrique",
+    "Acabamento visual e publicação multiplataforma de conteúdos religiosos para Instagram, TikTok e YouTube.": "Visual finishing and multi-platform publishing of religious content for Instagram, TikTok and YouTube.",
+    "Captação presencial, seleção de trechos, edição, legendagem, fotografia, stories e publicação diária de conteúdos religiosos.": "On-site recording, clip selection, editing, subtitles, photography, stories and daily publishing of religious content.",
+    "O que eu fiz": "What I did",
+    "Recebimento dos vídeos preparados pelo cliente": "Receiving videos prepared by the client",
+    "Tratamento visual": "Visual treatment",
+    "Preparação dos arquivos": "File preparation",
+    "Ajuste básico de cor": "Basic color adjustment",
+    "Inclusão de música quando necessária": "Music added when needed",
+    "Programação": "Scheduling",
+    "Gravação presencial das pregações": "On-site sermon recording",
+    "Captação de aproximadamente 10 a 15 minutos": "Recording approximately 10 to 15 minutes",
+    "Seleção dos melhores trechos": "Selecting the best clips",
+    "Criação de diversos cortes": "Creating several short clips",
+    "Edição": "Editing",
+    "Resultado permitido": "Approved result",
+    "Observação": "Transparency note",
+    "Durante a atuação de Erick, o perfil passou de aproximadamente 50 mil para 100 mil seguidores.": "During Erick’s work, the profile went from approximately 50 thousand to 100 thousand followers.",
+    "O crescimento posterior do perfil não deve ser apresentado como resultado da atuação de Erick.": "The profile’s later growth should not be presented as a result of Erick’s work.",
+    "Roteiros, gravação, legendagem inserida nos vídeos, capas, textos das publicações e direcionamento dos horários são fornecidos pelo cliente. A atuação de Erick concentra-se no acabamento visual e na publicação multiplataforma.": "Scripts, recordings, captions inserted in videos, covers, post texts and posting times are provided by the client. Erick’s work focuses on visual finishing and multi-platform publishing.",
+    "VÍDEO": "VIDEO",
+    "VISUALIZAÇÕES": "VIEWS",
+    "CURTIDAS": "LIKES",
+    "Carregar vídeo": "Load video",
+
+    "PROJETOS DE SITES": "WEBSITE PROJECTS",
+    "Sites criados para apresentar melhor o trabalho do cliente.": "Websites created to present the client’s work better.",
+    "Projetos com domínio próprio, visual responsivo e caminho claro para contato.": "Projects with custom domain, responsive design and a clear contact path.",
+    "Cada card mostra o contexto do site e o link para visitar.": "Each card shows the website context and the link to visit it.",
+    "Problema": "Problem",
+    "Estratégia": "Strategy",
+    "Páginas": "Pages",
+    "Visitar site": "Visit website",
+
+    "VALORES INICIAIS": "STARTING PRICES",
+    "Valores iniciais para projetos no Brasil.": "Starting prices for remote international projects. Payment through Stripe.",
+    "Você sabe por onde começar antes de pedir proposta.": "Starting prices for remote international projects. Payment through Stripe.",
+    "Os valores mudam conforme volume de conteúdo, plataformas, gravações e complexidade do projeto.": "Prices change according to content volume, platforms, recordings and project complexity.",
+    "Os valores mudam conforme volume de conteúdo, plataformas, gravações": "Prices change according to content volume, platforms, recordings",
+    "e complexidade do projeto.": "and project complexity.",
+
+    "Edição e Publicação": "Editing and Publishing",
+    "A partir de R$790 por mês": "From US$500 per month",
+    "A partir de R$1.390 por mês": "From US$850 per month",
+    "Social Media Completo": "Complete Social Media",
+    "A partir de R$2.190 por mês": "From US$1,250 per month",
+    "Landing Page Profissional": "Professional Landing Page",
+    "A partir de R$1.900 por projeto": "From US$1,000 per project",
+    "Site Institucional": "Business Website",
+    "A partir de R$3.200 por projeto": "From US$1,700 per project",
+    "Captação Presencial": "On-site Recording",
+    "A partir de R$500 por diária curta": "Custom quote",
+
+    "O que não entra automaticamente": "What is not automatically included",
+    "Anúncios pagos, gestão de tráfego, resposta de Direct, atendimento ao cliente, cobertura de eventos, deslocamento, gravações extras, alterações ilimitadas, banco de imagens pago, domínio e serviços fora da proposta.": "Paid ads, traffic management, replying to DMs, customer support, event coverage, travel, extra recordings, unlimited revisions, paid stock images, domain and services outside the proposal are not automatically included.",
+
+    "Sou Erick Garcia.": "I am Erick Garcia.",
+    "Trabalho com social media, edição de vídeos e criação de sites. Comecei na prática, gravando, editando e publicando conteúdos para perfis de grande audiência.": "I work with social media, video editing and website creation. I started in practice, recording, editing and publishing content for large-audience profiles.",
+    "Hoje ajudo empresas, profissionais, criadores e influenciadores a melhorarem a forma como aparecem na internet.": "Today I help businesses, professionals, creators and influencers improve the way they show up online.",
+
+    "DÚVIDAS COMUNS": "COMMON QUESTIONS",
+    "Perguntas antes de pedir orçamento.": "Questions before requesting a quote.",
+    "Separei as principais dúvidas para você entender melhor como funciona o trabalho antes de chamar no WhatsApp.": "I separated the main questions so you can understand how the work process works before contacting me on WhatsApp.",
+    "Você atende clientes de outras cidades?": "Do you work with clients from other cities?",
+    "Como funciona o social media à distância?": "How does remote social media work?",
+    "O cliente precisa gravar os vídeos?": "Does the client need to record the videos?",
+    "Você faz roteiros?": "Do you write scripts?",
+    "Você trabalha com Instagram, TikTok e YouTube?": "Do you work with Instagram, TikTok and YouTube?",
+    "Existe garantia de seguidores?": "Is there a guarantee of followers?",
+    "Quanto custa um site?": "How much does a website cost?",
+
+    "ORÇAMENTO": "QUOTE",
+    "Me conte o que você precisa.": "Tell me what you need.",
+    "Enviar pelo WhatsApp": "Send via WhatsApp",
+    "Política de Privacidade": "Privacy Policy",
+    "Termos de Uso": "Terms of Use",
+    "Atendimento em todo o Brasil": "Available worldwide"
+  },
+
+  es: {
+    "SOCIAL MEDIA E SITES": "SOCIAL MEDIA Y SITIOS WEB",
+    "Social media, editor de vídeos e criador de sites.": "Social media, edición de videos y sitios web.",
+    "Social media, vídeos e sites.": "Social media, videos y sitios web.",
+    "Cuido das suas redes, edito seus vídeos e crio sites para você mostrar melhor o seu trabalho e facilitar o contato com novos clientes.": "Cuido tus redes, edito tus videos y creo sitios web para que tu trabajo se vea mejor y nuevos clientes puedan contactarte más fácil.",
+    "Cuido das suas redes, edito seus vídeos e crio sites para você mostrar melhor": "Cuido tus redes, edito tus videos y creo sitios web para que tu trabajo se vea mejor",
+    "o seu trabalho e facilitar o contato com novos clientes.": "y nuevos clientes puedan contactarte más fácil.",
+
+    "Pedir orçamento": "Pedir presupuesto",
+    "Ver trabalhos": "Ver trabajos",
+    "Serviços": "Servicios",
+    "Trabalhos": "Trabajos",
+    "Sites": "Sitios",
+    "Valores": "Precios",
+    "Sobre": "Sobre mí",
+    "FAQ": "FAQ",
+
+    "PARA QUEM É": "PARA QUIÉN ES",
+    "Empresas": "Empresas",
+    "Profissionais": "Profesionales",
+    "Criadores": "Creadores",
+    "Influenciadores": "Influencers",
+    "Negócios locais": "Negocios locales",
+
+    "O QUE EU FAÇO": "LO QUE HAGO",
+    "Escolha o que você precisa agora.": "Elige lo que necesitas ahora.",
+    "Redes sociais, vídeos e sites podem ser contratados separadamente ou combinados em uma proposta única.": "Redes sociales, videos y sitios web pueden contratarse por separado o combinarse en una sola propuesta.",
+
+    "Social Media": "Social Media",
+    "Organizo perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.": "Organizo tu perfil, calendario, posts, Reels, textos y publicaciones para que tu marca mantenga presencia en redes.",
+    "Edição de vídeos": "Edición de videos",
+    "Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.": "Transformo grabaciones en cortes listos para publicar, con subtítulos, ajuste de color, ritmo y acabado visual.",
+    "Sites profissionais": "Sitios web profesionales",
+    "Crio landing pages e sites institucionais para apresentar seu trabalho e levar o cliente até o WhatsApp.": "Creo landing pages y sitios profesionales para presentar tu trabajo y llevar al cliente hasta WhatsApp.",
+
+    "TRABALHOS REAIS": "TRABAJOS REALES",
+    "Trabalhos reais, com participação clara.": "Trabajos reales, con participación clara.",
+    "Alguns projetos em que atuei com edição, publicação, captação ou organização de conteúdo. Cada case mostra minha parte no trabalho.": "Algunos proyectos donde trabajé con edición, publicación, grabación u organización de contenido. Cada caso muestra exactamente lo que hice.",
+
+    "CASE AUTORIZADO": "CASO AUTORIZADO",
+    "Padre Fabiano Moura": "Padre Fabiano Moura",
+    "Padre Pedro Henrique": "Padre Pedro Henrique",
+    "Acabamento visual e publicação multiplataforma de conteúdos religiosos para Instagram, TikTok e YouTube.": "Acabado visual y publicación multiplataforma de contenidos religiosos para Instagram, TikTok y YouTube.",
+    "Captação presencial, seleção de trechos, edição, legendagem, fotografia, stories e publicação diária de conteúdos religiosos.": "Grabación presencial, selección de fragmentos, edición, subtítulos, fotografía, stories y publicación diaria de contenidos religiosos.",
+    "O que eu fiz": "Lo que hice",
+    "Recebimento dos vídeos preparados pelo cliente": "Recepción de videos preparados por el cliente",
+    "Tratamento visual": "Tratamiento visual",
+    "Preparação dos arquivos": "Preparación de archivos",
+    "Ajuste básico de cor": "Ajuste básico de color",
+    "Inclusão de música quando necessária": "Música incluida cuando es necesario",
+    "Programação": "Programación",
+    "Gravação presencial das pregações": "Grabación presencial de las predicaciones",
+    "Captação de aproximadamente 10 a 15 minutos": "Grabación de aproximadamente 10 a 15 minutos",
+    "Seleção dos melhores trechos": "Selección de los mejores fragmentos",
+    "Criação de diversos cortes": "Creación de varios cortes",
+    "Edição": "Edición",
+    "Resultado permitido": "Resultado permitido",
+    "Observação": "Observación",
+    "Durante a atuação de Erick, o perfil passou de aproximadamente 50 mil para 100 mil seguidores.": "Durante el trabajo de Erick, el perfil pasó de aproximadamente 50 mil a 100 mil seguidores.",
+    "O crescimento posterior do perfil não deve ser apresentado como resultado da atuação de Erick.": "El crecimiento posterior del perfil no debe presentarse como resultado del trabajo de Erick.",
+    "Roteiros, gravação, legendagem inserida nos vídeos, capas, textos das publicações e direcionamento dos horários são fornecidos pelo cliente. A atuação de Erick concentra-se no acabamento visual e na publicação multiplataforma.": "Guiones, grabación, subtítulos insertados en los videos, portadas, textos de publicaciones y horarios son proporcionados por el cliente. El trabajo de Erick se concentra en el acabado visual y la publicación multiplataforma.",
+    "VÍDEO": "VIDEO",
+    "VISUALIZAÇÕES": "VISUALIZACIONES",
+    "CURTIDAS": "ME GUSTA",
+    "Carregar vídeo": "Cargar video",
+
+    "PROJETOS DE SITES": "PROYECTOS DE SITIOS",
+    "Sites criados para apresentar melhor o trabalho do cliente.": "Sitios creados para presentar mejor el trabajo del cliente.",
+    "Projetos com domínio próprio, visual responsivo e caminho claro para contato.": "Proyectos con dominio propio, diseño responsivo y camino claro para contacto.",
+    "Cada card mostra o contexto do site e o link para visitar.": "Cada tarjeta muestra el contexto del sitio y el enlace para visitarlo.",
+    "Problema": "Problema",
+    "Estratégia": "Estrategia",
+    "Páginas": "Páginas",
+    "Visitar site": "Visitar sitio",
+
+    "VALORES INICIAIS": "PRECIOS INICIALES",
+    "Valores iniciais para projetos no Brasil.": "Precios iniciales para proyectos remotos internacionales. Pago por Stripe.",
+    "Você sabe por onde começar antes de pedir proposta.": "Precios iniciales para proyectos remotos internacionales. Pago por Stripe.",
+    "Os valores mudam conforme volume de conteúdo, plataformas, gravações e complexidade do projeto.": "Los precios cambian según volumen de contenido, plataformas, grabaciones y complejidad del proyecto.",
+    "Os valores mudam conforme volume de conteúdo, plataformas, gravações": "Los precios cambian según volumen de contenido, plataformas, grabaciones",
+    "e complexidade do projeto.": "y complejidad del proyecto.",
+
+    "Edição e Publicação": "Edición y Publicación",
+    "A partir de R$790 por mês": "Desde €450 al mes",
+    "A partir de R$1.390 por mês": "Desde €750 al mes",
+    "Social Media Completo": "Social Media Completo",
+    "A partir de R$2.190 por mês": "Desde €1.100 al mes",
+    "Landing Page Profissional": "Landing Page Profesional",
+    "A partir de R$1.900 por projeto": "Desde €900 por proyecto",
+    "Site Institucional": "Sitio Profesional",
+    "A partir de R$3.200 por projeto": "Desde €1.500 por proyecto",
+    "Captação Presencial": "Grabación Presencial",
+    "A partir de R$500 por diária curta": "Presupuesto personalizado",
+
+    "O que não entra automaticamente": "Lo que no está incluido automáticamente",
+    "Anúncios pagos, gestão de tráfego, resposta de Direct, atendimento ao cliente, cobertura de eventos, deslocamento, gravações extras, alterações ilimitadas, banco de imagens pago, domínio e serviços fora da proposta.": "Anuncios pagados, gestión de tráfico, respuesta a mensajes, atención al cliente, cobertura de eventos, desplazamiento, grabaciones extra, cambios ilimitados, banco de imágenes pago, dominio y servicios fuera de la propuesta no están incluidos automáticamente.",
+
+    "Sou Erick Garcia.": "Soy Erick Garcia.",
+    "Trabalho com social media, edição de vídeos e criação de sites. Comecei na prática, gravando, editando e publicando conteúdos para perfis de grande audiência.": "Trabajo con social media, edición de videos y creación de sitios web. Empecé en la práctica, grabando, editando y publicando contenidos para perfiles de gran audiencia.",
+    "Hoje ajudo empresas, profissionais, criadores e influenciadores a melhorarem a forma como aparecem na internet.": "Hoy ayudo a empresas, profesionales, creadores e influencers a mejorar la forma en que aparecen en internet.",
+
+    "DÚVIDAS COMUNS": "PREGUNTAS FRECUENTES",
+    "Perguntas antes de pedir orçamento.": "Preguntas antes de pedir presupuesto.",
+    "Separei as principais dúvidas para você entender melhor como funciona o trabalho antes de chamar no WhatsApp.": "Separé las principales dudas para que entiendas mejor cómo funciona el trabajo antes de llamar por WhatsApp.",
+    "Você atende clientes de outras cidades?": "¿Atiendes clientes de otras ciudades?",
+    "Como funciona o social media à distância?": "¿Cómo funciona el social media a distancia?",
+    "O cliente precisa gravar os vídeos?": "¿El cliente necesita grabar los videos?",
+    "Você faz roteiros?": "¿Haces guiones?",
+    "Você trabalha com Instagram, TikTok e YouTube?": "¿Trabajas con Instagram, TikTok y YouTube?",
+    "Existe garantia de seguidores?": "¿Hay garantía de seguidores?",
+    "Quanto custa um site?": "¿Cuánto cuesta un sitio web?",
+
+    "ORÇAMENTO": "PRESUPUESTO",
+    "Me conte o que você precisa.": "Cuéntame lo que necesitas.",
+    "Enviar pelo WhatsApp": "Enviar por WhatsApp",
+    "Política de Privacidade": "Política de Privacidad",
+    "Termos de Uso": "Términos de Uso",
+    "Atendimento em todo o Brasil": "Atención internacional"
+  }
+};
+
 function detectLanguage(): Lang {
   const pathLang = window.location.pathname.split('/').filter(Boolean)[0];
 
@@ -488,7 +733,11 @@ function applyTranslations(lang: Lang) {
     }
 
     const normalized = normalizeText(trimmed);
-    const translated = dictionary?.[trimmed] ?? dictionary?.[normalized] ?? extraTranslations[lang]?.[normalized];
+    const translated =
+      runtimeOverrides[lang]?.[normalized] ??
+      dictionary?.[trimmed] ??
+      dictionary?.[normalized] ??
+      extraTranslations[lang]?.[normalized];
 
     if (translated) {
       node.textContent = `${leading}${translated}${trailing}`;
