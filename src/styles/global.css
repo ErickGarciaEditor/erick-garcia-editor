@@ -1361,3 +1361,319 @@ textarea {
     max-height: 68vh;
   }
 }
+
+/* Etapa 32 — ajuste fino de mobile, alinhamento e leitura */
+
+/* Evita textos com linhas feias quando o navegador suporta */
+h1,
+h2,
+h3,
+p,
+li,
+summary {
+  overflow-wrap: break-word;
+}
+
+@supports (text-wrap: pretty) {
+  p,
+  li,
+  summary,
+  .hero-text,
+  .section-heading p:not(.eyebrow),
+  .case-summary,
+  .case-note p,
+  .service-item p,
+  .about-text p,
+  .site-project-card__body p,
+  .price-card p,
+  .scope-box p {
+    text-wrap: pretty;
+  }
+}
+
+@supports (text-wrap: balance) {
+  .section-heading h2,
+  .case-content h3,
+  .site-project-card h3,
+  .about-grid h2 {
+    text-wrap: balance;
+  }
+}
+
+/* Desktop: mantém eixo visual mais consistente */
+@media (min-width: 1121px) {
+  .section-heading {
+    margin-inline: 0 auto;
+  }
+
+  .case-content,
+  .service-item p,
+  .about-text,
+  .quote-form,
+  .faq-list {
+    min-width: 0;
+  }
+
+  .case-card,
+  .site-project-card,
+  .price-card,
+  .scope-box,
+  .quote-form,
+  .faq-list details {
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* Tablet: reduz larguras exageradas */
+@media (max-width: 1120px) {
+  .hero-copy,
+  .section-heading,
+  .case-content,
+  .about-text {
+    max-width: 760px;
+  }
+
+  .case-media-panel {
+    margin-top: 6px;
+  }
+
+  .quote-form,
+  .faq-list {
+    max-width: 760px;
+  }
+}
+
+/* Mobile: tudo respira melhor e fica com eixo central controlado */
+@media (max-width: 760px) {
+  :root {
+    --section: 72px;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 82% 0%, rgba(214, 59, 48, 0.16), transparent 22rem),
+      linear-gradient(180deg, #070707 0%, #0b0a0a 48%, #070707 100%);
+  }
+
+  .container {
+    width: min(100% - 30px, var(--container));
+  }
+
+  .site-header {
+    background: rgba(7, 7, 7, 0.92);
+  }
+
+  .brand span {
+    font-size: 1.28rem;
+  }
+
+  .brand small {
+    font-size: 0.6rem;
+    letter-spacing: 0.17em;
+  }
+
+  .hero {
+    padding-top: 42px;
+    padding-bottom: 58px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    margin-bottom: 14px;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+  }
+
+  .hero h1 {
+    max-width: 9ch;
+  }
+
+  .hero h2 {
+    max-width: 13ch;
+    margin-top: 16px;
+  }
+
+  .hero-text {
+    max-width: 31rem;
+    margin-top: 22px;
+  }
+
+  .hero-actions {
+    margin-top: 28px;
+  }
+
+  .audience-row {
+    gap: 16px;
+  }
+
+  .audience-row div {
+    gap: 8px;
+  }
+
+  .audience-row strong,
+  .site-project-features li {
+    font-size: 0.8rem;
+  }
+
+  .section {
+    padding-block: var(--section);
+  }
+
+  .section-heading {
+    max-width: 100%;
+  }
+
+  .section-heading h2,
+  .about-grid h2 {
+    max-width: 12ch;
+    line-height: 0.96;
+  }
+
+  .section-heading p:not(.eyebrow) {
+    max-width: 32rem;
+    margin-top: 18px;
+    line-height: 1.62;
+  }
+
+  .service-list,
+  .case-stack,
+  .site-projects-grid,
+  .price-grid {
+    margin-top: 38px;
+  }
+
+  .service-item {
+    padding-block: 28px;
+  }
+
+  .service-item h3 {
+    font-size: clamp(1.8rem, 9vw, 2.45rem);
+  }
+
+  .service-item p {
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+
+  .case-stack {
+    gap: 24px;
+  }
+
+  .case-card {
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .case-content h3 {
+    max-width: 12ch;
+  }
+
+  .case-summary {
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+
+  .case-note {
+    padding: 16px;
+  }
+
+  .case-media-panel {
+    padding: 10px;
+    border-radius: 22px;
+  }
+
+  .case-video-card,
+  .metric-card {
+    border-radius: 15px;
+  }
+
+  .video-loader,
+  .case-video {
+    border-radius: 12px;
+  }
+
+  .case-video-card > span,
+  .metric-card figcaption {
+    font-size: 0.62rem;
+  }
+
+  .site-project-card {
+    gap: 22px;
+  }
+
+  .site-project-card h3 {
+    max-width: 13ch;
+  }
+
+  .site-project-preview {
+    border-radius: 18px;
+  }
+
+  .desktop-preview {
+    border-radius: 13px;
+  }
+
+  .mobile-preview {
+    border-radius: 15px;
+  }
+
+  .price-card,
+  .scope-box,
+  .quote-form {
+    padding: 20px;
+  }
+
+  .faq-list summary {
+    min-height: auto;
+    padding: 17px 18px;
+    line-height: 1.35;
+  }
+
+  .faq-list details p {
+    padding: 0 18px 18px;
+  }
+
+  .footer {
+    padding-block: 32px;
+  }
+
+  .footer-links {
+    gap: 10px 14px;
+    line-height: 1.45;
+  }
+}
+
+/* Celulares pequenos: evita cards espremidos */
+@media (max-width: 420px) {
+  .container {
+    width: min(100% - 26px, var(--container));
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 16vw, 4.4rem);
+  }
+
+  .hero h2 {
+    font-size: clamp(1.35rem, 6.8vw, 1.9rem);
+  }
+
+  .section-heading h2,
+  .about-grid h2 {
+    font-size: clamp(2.08rem, 10.5vw, 3.15rem);
+  }
+
+  .case-card,
+  .site-project-card,
+  .price-card,
+  .scope-box,
+  .quote-form {
+    padding: 18px;
+  }
+
+  .case-media-panel {
+    max-width: 100%;
+  }
+}
