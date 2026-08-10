@@ -555,6 +555,150 @@ const aboutByLang = {
   },
 } as const;
 
+
+const casesByLang = {
+  pt: {
+    eyebrow: 'Trabalhos reais',
+    title: 'Trabalhos reais, com participação clara.',
+    text: 'Alguns projetos em que atuei com edição, publicação, captação ou organização de conteúdo. Cada case mostra minha parte no trabalho.',
+    labels: {
+      authorized: 'Case autorizado',
+      whatIDid: 'O que eu fiz',
+      approvedResult: 'Resultado permitido',
+      note: 'Observação',
+      video: 'Vídeo',
+      fallbackPrefix: 'Print de',
+      fallbackSuffix: 'pendente',
+    },
+    cases: [
+      {
+        summary: 'Acabamento visual e publicação multiplataforma de conteúdos religiosos para Instagram, TikTok e YouTube.',
+        responsibilities: [
+          'Recebimento dos vídeos preparados pelo cliente',
+          'Ajuste básico de cor',
+          'Tratamento visual',
+          'Inclusão de música quando necessária',
+          'Preparação dos arquivos',
+          'Programação',
+        ],
+        resultNote: '',
+        transparencyNote:
+          'Roteiros, gravação, legendagem inserida nos vídeos, capas, textos das publicações e direcionamento dos horários são fornecidos pelo cliente. A atuação de Erick concentra-se no acabamento visual e na publicação multiplataforma.',
+        metrics: ['Visualizações', 'Curtidas'],
+      },
+      {
+        summary: 'Captação presencial, seleção de trechos, edição, legendagem, fotografia, stories e publicação diária de conteúdos religiosos.',
+        responsibilities: [
+          'Gravação presencial das pregações',
+          'Captação de aproximadamente 10 a 15 minutos',
+          'Seleção dos melhores trechos',
+          'Criação de diversos cortes',
+          'Vídeos com aproximadamente 1 minuto e 30 segundos a 1 minuto e 50 segundos',
+          'Edição',
+        ],
+        resultNote: 'Durante a atuação de Erick, o perfil passou de aproximadamente 50 mil para 100 mil seguidores.',
+        transparencyNote:
+          'O crescimento posterior do perfil não deve ser apresentado como resultado da atuação de Erick.',
+        metrics: ['Visualizações', 'Curtidas'],
+      },
+    ],
+  },
+
+  en: {
+    eyebrow: 'Real work',
+    title: 'Real work, with clear responsibility.',
+    text: 'Some projects where I worked with editing, publishing, recording or content organization. Each case shows exactly what I did.',
+    labels: {
+      authorized: 'Authorized case',
+      whatIDid: 'What I did',
+      approvedResult: 'Approved result',
+      note: 'Transparency note',
+      video: 'Video',
+      fallbackPrefix: 'Screenshot of',
+      fallbackSuffix: 'pending',
+    },
+    cases: [
+      {
+        summary: 'Visual finishing and multi-platform publishing of religious content for Instagram, TikTok and YouTube.',
+        responsibilities: [
+          'Receiving videos prepared by the client',
+          'Basic color adjustment',
+          'Visual treatment',
+          'Music added when needed',
+          'File preparation',
+          'Scheduling',
+        ],
+        resultNote: '',
+        transparencyNote:
+          'Scripts, recordings, captions inserted in the videos, covers, post texts and posting times are provided by the client. Erick’s work focuses on visual finishing and multi-platform publishing.',
+        metrics: ['Views', 'Likes'],
+      },
+      {
+        summary: 'On-site recording, clip selection, editing, subtitles, photography, stories and daily publishing of religious content.',
+        responsibilities: [
+          'On-site sermon recording',
+          'Recording approximately 10 to 15 minutes',
+          'Selecting the best clips',
+          'Creating several short clips',
+          'Videos around 1 minute 30 seconds to 1 minute 50 seconds',
+          'Editing',
+        ],
+        resultNote: 'During Erick’s work, the profile went from approximately 50 thousand to 100 thousand followers.',
+        transparencyNote:
+          'The profile’s later growth should not be presented as a result of Erick’s work.',
+        metrics: ['Views', 'Likes'],
+      },
+    ],
+  },
+
+  es: {
+    eyebrow: 'Trabajos reales',
+    title: 'Trabajos reales, con participación clara.',
+    text: 'Algunos proyectos donde trabajé con edición, publicación, grabación u organización de contenido. Cada caso muestra exactamente lo que hice.',
+    labels: {
+      authorized: 'Caso autorizado',
+      whatIDid: 'Lo que hice',
+      approvedResult: 'Resultado permitido',
+      note: 'Observación',
+      video: 'Video',
+      fallbackPrefix: 'Captura de',
+      fallbackSuffix: 'pendiente',
+    },
+    cases: [
+      {
+        summary: 'Acabado visual y publicación multiplataforma de contenidos religiosos para Instagram, TikTok y YouTube.',
+        responsibilities: [
+          'Recepción de videos preparados por el cliente',
+          'Ajuste básico de color',
+          'Tratamiento visual',
+          'Música incluida cuando es necesario',
+          'Preparación de archivos',
+          'Programación',
+        ],
+        resultNote: '',
+        transparencyNote:
+          'Guiones, grabación, subtítulos insertados en los videos, portadas, textos de publicaciones y horarios son proporcionados por el cliente. El trabajo de Erick se concentra en el acabado visual y la publicación multiplataforma.',
+        metrics: ['Visualizaciones', 'Me gusta'],
+      },
+      {
+        summary: 'Grabación presencial, selección de fragmentos, edición, subtítulos, fotografía, stories y publicación diaria de contenidos religiosos.',
+        responsibilities: [
+          'Grabación presencial de las predicaciones',
+          'Grabación de aproximadamente 10 a 15 minutos',
+          'Selección de los mejores fragmentos',
+          'Creación de varios cortes',
+          'Videos de aproximadamente 1 minuto y 30 segundos a 1 minuto y 50 segundos',
+          'Edición',
+        ],
+        resultNote: 'Durante el trabajo de Erick, el perfil pasó de aproximadamente 50 mil a 100 mil seguidores.',
+        transparencyNote:
+          'El crecimiento posterior del perfil no debe presentarse como resultado del trabajo de Erick.',
+        metrics: ['Visualizaciones', 'Me gusta'],
+      },
+    ],
+  },
+} as const;
+
 export default function App() {
   const currentPage = getCurrentPage();
   const lang = getAppLang();
@@ -563,6 +707,7 @@ export default function App() {
   const activePricing = pricingByLang[lang];
   const about = aboutByLang[lang];
   const topContent = topContentByLang[lang];
+  const casesCopy = casesByLang[lang];
 
   if (currentPage === 'privacy') {
     return <PrivacyPolicy />;
@@ -683,70 +828,75 @@ export default function App() {
         <section className="section section-dark" id="trabalhos">
           <div className="container">
             <div className="section-heading">
-              <p className="eyebrow">Trabalhos reais</p>
-              <h2>Trabalhos reais, com participação clara.</h2>
-              <p>
-                Alguns projetos em que atuei com edição, publicação, captação ou organização de
-                conteúdo. Cada case mostra minha parte no trabalho.
-              </p>
+              <p className="eyebrow">{casesCopy.eyebrow}</p>
+              <h2>{casesCopy.title}</h2>
+              <p>{casesCopy.text}</p>
             </div>
 
             <div className="case-stack">
-              {cases.map((item) => (
-                <article className="case-card" key={item.slug}>
-                  <div className="case-content">
-                    <p className="case-label">Case autorizado</p>
-                    <h3>{item.clientName}</h3>
-                    <p className="case-summary">{item.summary}</p>
+              {cases.map((item, caseIndex) => {
+                const caseCopy = casesCopy.cases[caseIndex];
 
-                    <div className="case-block">
-                      <h4>O que eu fiz</h4>
-                      <ul>
-                        {item.responsibilities.slice(0, 6).map((responsibility) => (
-                          <li key={responsibility}>{responsibility}</li>
-                        ))}
-                      </ul>
-                    </div>
+                return (
+                  <article className="case-card" key={item.slug}>
+                    <div className="case-content">
+                      <p className="case-label">{casesCopy.labels.authorized}</p>
+                      <h3>{item.clientName}</h3>
+                      <p className="case-summary">{caseCopy?.summary ?? item.summary}</p>
 
-                    {item.resultNote ? (
-                      <div className="case-note case-note-highlight">
-                        <strong>Resultado permitido</strong>
-                        <p>{item.resultNote}</p>
+                      <div className="case-block">
+                        <h4>{casesCopy.labels.whatIDid}</h4>
+                        <ul>
+                          {(caseCopy?.responsibilities ?? item.responsibilities.slice(0, 6)).map((responsibility) => (
+                            <li key={responsibility}>{responsibility}</li>
+                          ))}
+                        </ul>
                       </div>
-                    ) : null}
 
-                    <div className="case-note">
-                      <strong>Observação</strong>
-                      <p>{item.transparencyNote}</p>
-                    </div>
-                  </div>
+                      {caseCopy?.resultNote || item.resultNote ? (
+                        <div className="case-note case-note-highlight">
+                          <strong>{casesCopy.labels.approvedResult}</strong>
+                          <p>{caseCopy?.resultNote || item.resultNote}</p>
+                        </div>
+                      ) : null}
 
-                  <div className="case-media-panel" aria-label={`Mídias do case ${item.clientName}`}>
-                    <div className="case-video-card">
-                      <span>Vídeo</span>
-                      {item.video ? <SafeVideo src={item.video.src} label={item.video.label} poster={item.metrics[0]?.image} /> : null}
+                      <div className="case-note">
+                        <strong>{casesCopy.labels.note}</strong>
+                        <p>{caseCopy?.transparencyNote ?? item.transparencyNote}</p>
+                      </div>
                     </div>
 
-                    <div className="case-metrics">
-                      {item.metrics.map((metric) => (
-                        <figure
-                          className={`metric-card ${
-                            metric.label.toLowerCase().includes('curtida') ? 'metric-card--wide' : ''
-                          }`}
-                          key={metric.label}
-                        >
-                          <figcaption>{metric.label}</figcaption>
-                          <SafeImage
-                            src={metric.image}
-                            alt={metric.alt}
-                            fallbackLabel={`Print de ${metric.label.toLowerCase()} pendente`}
-                          />
-                        </figure>
-                      ))}
+                    <div className="case-media-panel" aria-label={`${casesCopy.labels.video} ${item.clientName}`}>
+                      <div className="case-video-card">
+                        <span>{casesCopy.labels.video}</span>
+                        {item.video ? <SafeVideo src={item.video.src} label={item.video.label} poster={item.metrics[0]?.image} /> : null}
+                      </div>
+
+                      <div className="case-metrics">
+                        {item.metrics.map((metric, metricIndex) => {
+                          const metricLabel = caseCopy?.metrics[metricIndex] ?? metric.label;
+
+                          return (
+                            <figure
+                              className={`metric-card ${
+                                metric.label.toLowerCase().includes('curtida') ? 'metric-card--wide' : ''
+                              }`}
+                              key={metric.label}
+                            >
+                              <figcaption>{metricLabel}</figcaption>
+                              <SafeImage
+                                src={metric.image}
+                                alt={metric.alt}
+                                fallbackLabel={`${casesCopy.labels.fallbackPrefix} ${metricLabel.toLowerCase()} ${casesCopy.labels.fallbackSuffix}`}
+                              />
+                            </figure>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
