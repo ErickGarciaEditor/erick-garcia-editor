@@ -3,7 +3,6 @@ import { SafeVideo } from './components/SafeVideo';
 import { LanguageLayer } from './components/LanguageLayer';
 import { QuoteForm } from './components/QuoteForm';
 import { cases } from './data/cases';
-import { pricing } from './data/services';
 import { contact } from './data/contact';
 import { siteProjects } from './data/siteProjects';
 import { NotFound } from './pages/NotFound';
@@ -268,11 +267,156 @@ const siteProjectsByLang = {
   },
 } as const;
 
+
+const pricingByLang = {
+  pt: {
+    eyebrow: 'Valores iniciais',
+    title: 'Valores iniciais para você se orientar.',
+    text: 'O valor final depende do volume de conteúdo, plataformas, gravações e complexidade do projeto.',
+    cards: [
+      {
+        title: 'Edição e Publicação',
+        price: 'A partir de R$790 por mês',
+        description:
+          'Indicado para clientes que já entregam vídeo, capa, legenda e direcionamento. Pode incluir acabamento visual, ajuste de cor, música quando necessária, organização, programação e publicação.',
+      },
+      {
+        title: 'Social Media',
+        price: 'A partir de R$1.390 por mês',
+        description:
+          'Pode incluir diagnóstico, planejamento mensal, até 8 conteúdos, edição de Reels, posts ou carrosséis, legendas, calendário e publicação.',
+      },
+      {
+        title: 'Social Media Completo',
+        price: 'A partir de R$2.190 por mês',
+        description:
+          'Pode incluir planejamento estratégico, aproximadamente 12 conteúdos mensais, roteiros, Reels, posts, carrosséis, calendário, publicação e relatório.',
+      },
+      {
+        title: 'Landing Page Profissional',
+        price: 'A partir de R$1.900 por projeto',
+        description:
+          'Indicada para apresentar uma oferta, serviço, profissional, campanha ou negócio com foco em conversão.',
+      },
+      {
+        title: 'Site Institucional',
+        price: 'A partir de R$3.200 por projeto',
+        description:
+          'Indicado para empresas e profissionais que precisam apresentar serviços, diferenciais, localização, canais de contato e uma presença digital mais completa.',
+      },
+      {
+        title: 'Captação Presencial',
+        price: 'A partir de R$500 por diária curta',
+        description:
+          'Serviço acrescido de deslocamento quando aplicável. Indicado para gravações, fotos, bastidores, eventos curtos ou produção de conteúdo presencial.',
+      },
+    ],
+    notIncludedTitle: 'O que não entra automaticamente',
+    notIncludedText:
+      'Anúncios pagos, gestão de tráfego, resposta de Direct, atendimento ao cliente, cobertura de eventos, deslocamento, gravações extras, alterações ilimitadas, banco de imagens pago, domínio e serviços fora da proposta.',
+  },
+
+  en: {
+    eyebrow: 'Starting prices',
+    title: 'Starting prices for remote international projects.',
+    text: 'The final price depends on content volume, platforms, recordings and project complexity. Payment through Stripe.',
+    cards: [
+      {
+        title: 'Editing and Publishing',
+        price: 'From US$500 per month',
+        description:
+          'For clients who already provide video, cover, caption and direction. May include visual finishing, color adjustment, music when needed, organization, scheduling and publishing.',
+      },
+      {
+        title: 'Social Media',
+        price: 'From US$850 per month',
+        description:
+          'May include diagnosis, monthly planning, up to 8 pieces of content, Reels editing, posts or carousels, captions, calendar and publishing.',
+      },
+      {
+        title: 'Complete Social Media',
+        price: 'From US$1,250 per month',
+        description:
+          'May include strategic planning, around 12 monthly pieces of content, scripts, Reels, posts, carousels, calendar, publishing and report.',
+      },
+      {
+        title: 'Professional Landing Page',
+        price: 'From US$1,000 per project',
+        description:
+          'Recommended for presenting an offer, service, professional, campaign or business with conversion in mind.',
+      },
+      {
+        title: 'Business Website',
+        price: 'From US$1,700 per project',
+        description:
+          'Recommended for businesses and professionals that need to present services, differences, location, contact channels and a stronger digital presence.',
+      },
+      {
+        title: 'On-site Recording',
+        price: 'Custom quote',
+        description:
+          'Quoted separately because location, travel, production time and logistics change from project to project.',
+      },
+    ],
+    notIncludedTitle: 'What is not automatically included',
+    notIncludedText:
+      'Paid ads, traffic management, replying to DMs, customer support, event coverage, travel, extra recordings, unlimited revisions, paid stock images, domain and services outside the proposal are not automatically included.',
+  },
+
+  es: {
+    eyebrow: 'Precios iniciales',
+    title: 'Precios iniciales para proyectos remotos internacionales.',
+    text: 'El valor final depende del volumen de contenido, plataformas, grabaciones y complejidad del proyecto. Pago por Stripe.',
+    cards: [
+      {
+        title: 'Edición y Publicación',
+        price: 'Desde €450 al mes',
+        description:
+          'Para clientes que ya entregan video, portada, texto y dirección. Puede incluir acabado visual, ajuste de color, música cuando sea necesario, organización, programación y publicación.',
+      },
+      {
+        title: 'Social Media',
+        price: 'Desde €750 al mes',
+        description:
+          'Puede incluir diagnóstico, planificación mensual, hasta 8 contenidos, edición de Reels, posts o carruseles, textos, calendario y publicación.',
+      },
+      {
+        title: 'Social Media Completo',
+        price: 'Desde €1.100 al mes',
+        description:
+          'Puede incluir planificación estratégica, cerca de 12 contenidos mensuales, guiones, Reels, posts, carruseles, calendario, publicación e informe.',
+      },
+      {
+        title: 'Landing Page Profesional',
+        price: 'Desde €900 por proyecto',
+        description:
+          'Indicada para presentar una oferta, servicio, profesional, campaña o negocio con foco en conversión.',
+      },
+      {
+        title: 'Sitio Profesional',
+        price: 'Desde €1.500 por proyecto',
+        description:
+          'Indicado para empresas y profesionales que necesitan presentar servicios, diferenciales, ubicación, canales de contacto y una presencia digital más completa.',
+      },
+      {
+        title: 'Grabación Presencial',
+        price: 'Presupuesto personalizado',
+        description:
+          'Se cotiza por separado porque ubicación, desplazamiento, tiempo de producción y logística cambian de un proyecto a otro.',
+      },
+    ],
+    notIncludedTitle: 'Lo que no está incluido automáticamente',
+    notIncludedText:
+      'Anuncios pagados, gestión de tráfico, respuesta a mensajes, atención al cliente, cobertura de eventos, desplazamiento, grabaciones extra, cambios ilimitados, banco de imágenes pago, dominio y servicios fuera de la propuesta no están incluidos automáticamente.',
+  },
+} as const;
+
 export default function App() {
   const currentPage = getCurrentPage();
   const lang = getAppLang();
   const faq = faqByLang[lang];
   const siteProjectsCopy = siteProjectsByLang[lang];
+  const activePricing = pricingByLang[lang];
 
   if (currentPage === 'privacy') {
     return <PrivacyPolicy />;
@@ -550,18 +694,13 @@ export default function App() {
         <section className="section" id="valores">
           <div className="container">
             <div className="section-heading">
-              <p className="eyebrow">Valores iniciais</p>
-              <h2>Valores iniciais para você se orientar.</h2>
-              <p>
-                O valor final depende do volume de conteúdo, plataformas, gravações e complexidade
-                do projeto.
-              </p>
+              <p className="eyebrow">{activePricing.eyebrow}</p>
+              <h2>{activePricing.title}</h2>
+              <p>{activePricing.text}</p>
             </div>
 
             <div className="price-grid">
-              {pricing
-                .filter((item) => item.title !== 'Social Media + Site')
-                .map((item) => (
+              {activePricing.cards.map((item) => (
                 <article className="price-card" key={item.title}>
                   <h3>{item.title}</h3>
                   <strong>{item.price}</strong>
@@ -571,12 +710,8 @@ export default function App() {
             </div>
 
             <div className="scope-box">
-              <h3>O que não entra automaticamente</h3>
-              <p>
-                Anúncios pagos, gestão de tráfego, resposta de Direct, atendimento ao cliente,
-                cobertura de eventos, deslocamento, gravações extras, alterações ilimitadas, banco
-                de imagens pago, domínio e serviços fora da proposta.
-              </p>
+              <h3>{activePricing.notIncludedTitle}</h3>
+              <p>{activePricing.notIncludedText}</p>
             </div>
           </div>
         </section>
