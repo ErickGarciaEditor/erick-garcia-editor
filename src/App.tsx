@@ -411,12 +411,43 @@ const pricingByLang = {
   },
 } as const;
 
+
+const aboutByLang = {
+  pt: {
+    eyebrow: 'Sobre',
+    title: 'Sou Erick Garcia.',
+    paragraphs: [
+      'Trabalho com social media, edição de vídeos e criação de sites. Comecei na prática, gravando, editando e publicando conteúdos para perfis de grande audiência.',
+      'Hoje ajudo empresas, profissionais, criadores e influenciadores a melhorarem a forma como aparecem na internet.',
+    ],
+  },
+
+  en: {
+    eyebrow: 'About',
+    title: 'I am Erick Garcia.',
+    paragraphs: [
+      'I work with social media, video editing and website creation. I started in practice, recording, editing and publishing content for large-audience profiles.',
+      'Today I help businesses, professionals, creators and influencers improve the way they show up online.',
+    ],
+  },
+
+  es: {
+    eyebrow: 'Sobre mí',
+    title: 'Soy Erick Garcia.',
+    paragraphs: [
+      'Trabajo con social media, edición de videos y creación de sitios web. Empecé en la práctica, grabando, editando y publicando contenidos para perfiles de gran audiencia.',
+      'Hoy ayudo a empresas, profesionales, creadores e influencers a mejorar la forma en que aparecen en internet.',
+    ],
+  },
+} as const;
+
 export default function App() {
   const currentPage = getCurrentPage();
   const lang = getAppLang();
   const faq = faqByLang[lang];
   const siteProjectsCopy = siteProjectsByLang[lang];
   const activePricing = pricingByLang[lang];
+  const about = aboutByLang[lang];
 
   if (currentPage === 'privacy') {
     return <PrivacyPolicy />;
@@ -719,19 +750,14 @@ export default function App() {
         <section className="section section-about" id="sobre">
           <div className="container about-grid">
             <div>
-              <p className="eyebrow">Sobre</p>
-              <h2>Sou Erick Garcia.</h2>
+              <p className="eyebrow">{about.eyebrow}</p>
+              <h2>{about.title}</h2>
             </div>
 
             <div className="about-text">
-              <p>
-                Trabalho com social media, edição de vídeos e criação de sites. Comecei na prática,
-                gravando, editando e publicando conteúdos para perfis de grande audiência.
-              </p>
-              <p>
-                Hoje ajudo empresas, profissionais, criadores e influenciadores a melhorarem a forma
-                como aparecem na internet.
-              </p>
+              {about.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
           </div>
         </section>
