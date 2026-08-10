@@ -1806,3 +1806,233 @@ summary {
     font-size: 1rem;
   }
 }
+
+/* Etapa 38 — sistema tipográfico mobile global */
+
+/* Tablet: reduz títulos grandes antes de chegar no celular */
+@media (min-width: 761px) and (max-width: 1120px) {
+  .section-heading h2,
+  .about-grid h2,
+  .legal-content h1 {
+    max-width: 18ch;
+    font-size: clamp(2.9rem, 6vw, 4.15rem);
+    line-height: 0.98;
+  }
+
+  .section-heading p:not(.eyebrow),
+  .service-item p,
+  .case-summary,
+  .case-note p,
+  .about-text p,
+  .price-card p,
+  .scope-box p,
+  .site-project-card__body p,
+  .faq-list details p,
+  .quote-form,
+  .legal-content p {
+    max-width: 62ch;
+    font-size: clamp(0.98rem, 1.65vw, 1.08rem);
+    line-height: 1.6;
+  }
+
+  .service-item {
+    grid-template-columns: 56px minmax(220px, 0.36fr) minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .service-item h3 {
+    font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+  }
+
+  .case-content h3,
+  .site-project-card h3 {
+    max-width: 16ch;
+    font-size: clamp(2rem, 4.2vw, 3rem);
+  }
+
+  .price-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Celular: escala real de leitura, sem títulos gigantes em todas as seções */
+@media (max-width: 760px) {
+  .section-heading h2,
+  .about-grid h2,
+  .legal-content h1 {
+    max-width: 14ch;
+    font-size: clamp(2rem, 9vw, 2.85rem);
+    line-height: 1;
+    letter-spacing: -0.058em;
+  }
+
+  .section-heading p:not(.eyebrow) {
+    max-width: 34ch;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .service-item h3 {
+    max-width: 16ch;
+    font-size: clamp(1.55rem, 7.4vw, 2.15rem);
+    line-height: 1.02;
+  }
+
+  .service-item p {
+    max-width: 35ch;
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
+  .case-content h3 {
+    max-width: 15ch;
+    font-size: clamp(1.85rem, 8.2vw, 2.55rem);
+    line-height: 1;
+  }
+
+  .case-summary {
+    max-width: 35ch;
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
+  .case-block h4 {
+    font-size: 1rem;
+  }
+
+  .case-block li {
+    max-width: 34ch;
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
+
+  .case-note strong {
+    font-size: 0.92rem;
+  }
+
+  .case-note p {
+    max-width: 34ch;
+    font-size: 0.9rem;
+    line-height: 1.52;
+  }
+
+  .site-project-card h3 {
+    max-width: 15ch;
+    font-size: clamp(1.75rem, 7.6vw, 2.4rem);
+    line-height: 1.02;
+  }
+
+  .site-project-card__top p,
+  .site-project-card__body p {
+    max-width: 35ch;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .site-project-card__body strong {
+    font-size: 0.95rem;
+  }
+
+  .site-project-features li {
+    min-height: 32px;
+    font-size: 0.76rem;
+    line-height: 1.2;
+  }
+
+  .price-card h3,
+  .scope-box h3 {
+    max-width: 17ch;
+    font-size: clamp(1.18rem, 5.4vw, 1.55rem);
+    line-height: 1.08;
+  }
+
+  .price-card strong {
+    font-size: 0.94rem;
+    line-height: 1.35;
+  }
+
+  .price-card p,
+  .scope-box p {
+    max-width: 35ch;
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .about-text p {
+    max-width: 35ch;
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  .faq-list summary {
+    font-size: 0.96rem;
+    line-height: 1.32;
+  }
+
+  .faq-list details p {
+    max-width: 35ch;
+    font-size: 0.92rem;
+    line-height: 1.52;
+  }
+
+  .quote-form label {
+    font-size: 0.86rem;
+  }
+
+  .quote-form input,
+  .quote-form select,
+  .quote-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .form-note,
+  .form-error {
+    font-size: 0.88rem;
+  }
+
+  .footer strong {
+    font-size: 1.1rem;
+  }
+
+  .footer span,
+  .footer-links {
+    font-size: 0.78rem;
+  }
+
+  .legal-content h2 {
+    font-size: 1.35rem;
+  }
+
+  .legal-content p {
+    max-width: 35ch;
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+}
+
+/* Celular pequeno: mais controle ainda */
+@media (max-width: 420px) {
+  .section-heading h2,
+  .about-grid h2,
+  .legal-content h1 {
+    max-width: 13ch;
+    font-size: clamp(1.9rem, 8.7vw, 2.55rem);
+  }
+
+  .section-heading p:not(.eyebrow),
+  .service-item p,
+  .case-summary,
+  .site-project-card__body p,
+  .price-card p,
+  .scope-box p,
+  .about-text p,
+  .faq-list details p,
+  .legal-content p {
+    max-width: 33ch;
+  }
+
+  .case-content h3,
+  .site-project-card h3 {
+    font-size: clamp(1.72rem, 8vw, 2.25rem);
+  }
+}
