@@ -48,31 +48,31 @@ export const services: ServiceItem[] = [
 export const pricing = [
   {
     title: 'Edição e Publicação',
-    price: 'A partir de R$700 por mês',
+    price: 'A partir de R$790 por mês',
     description:
       'Indicado para clientes que já entregam vídeo, capa, legenda e direcionamento. Pode incluir acabamento visual, ajuste de cor, música quando necessária, organização, programação e publicação.',
   },
   {
-    title: 'Social Media Essencial',
-    price: 'A partir de R$1.200 por mês',
+    title: 'Social Media',
+    price: 'A partir de R$1.390 por mês',
     description:
       'Pode incluir diagnóstico, planejamento mensal, até 8 conteúdos, edição de Reels, posts ou carrosséis, legendas, calendário e publicação.',
   },
   {
     title: 'Social Media Completo',
-    price: 'A partir de R$1.800 por mês',
+    price: 'A partir de R$2.190 por mês',
     description:
       'Pode incluir planejamento estratégico, aproximadamente 12 conteúdos mensais, roteiros, Reels, posts, carrosséis, calendário, publicação e relatório.',
   },
   {
     title: 'Landing Page Profissional',
-    price: 'A partir de R$1.500 por projeto',
+    price: 'A partir de R$1.900 por projeto',
     description:
       'Indicado para apresentar uma oferta, serviço, profissional, campanha ou negócio com foco em conversão.',
   },
   {
     title: 'Site Institucional',
-    price: 'A partir de R$2.500 por projeto',
+    price: 'A partir de R$3.200 por projeto',
     description:
       'Indicado para empresas e profissionais que precisam apresentar serviços, diferenciais, localização, canais de contato e uma presença digital mais completa.',
   },
@@ -84,7 +84,7 @@ export const pricing = [
   },
   {
     title: 'Captação Presencial',
-    price: 'A partir de R$400 por diária curta',
+    price: 'A partir de R$500 por diária curta',
     description:
       'Serviço acrescido de deslocamento quando aplicável. Indicado para gravações, fotos, bastidores, eventos curtos ou produção de conteúdo presencial.',
   },

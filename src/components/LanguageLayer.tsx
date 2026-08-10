@@ -361,7 +361,6 @@ const runtimeOverrides: Record<Lang, Record<string, string>> = {
     "Escolha o que você precisa agora.": "Choose what you need right now.",
     "Redes sociais, vídeos e sites podem ser contratados separadamente ou combinados em uma proposta única.": "Social media, videos and websites can be hired separately or combined into one proposal.",
 
-    "Social Media": "Social Media",
     "Organizo perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.": "I organize your profile, calendar, posts, Reels, captions and publishing so your brand stays active online.",
     "Edição de vídeos": "Video editing",
     "Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.": "I turn recordings into ready-to-post clips, with captions, color adjustment, pacing and visual finishing.",
@@ -481,7 +480,6 @@ const runtimeOverrides: Record<Lang, Record<string, string>> = {
     "Escolha o que você precisa agora.": "Elige lo que necesitas ahora.",
     "Redes sociais, vídeos e sites podem ser contratados separadamente ou combinados em uma proposta única.": "Redes sociales, videos y sitios web pueden contratarse por separado o combinarse en una sola propuesta.",
 
-    "Social Media": "Social Media",
     "Organizo perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.": "Organizo tu perfil, calendario, posts, Reels, textos y publicaciones para que tu marca mantenga presencia en redes.",
     "Edição de vídeos": "Edición de videos",
     "Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.": "Transformo grabaciones en cortes listos para publicar, con subtítulos, ajuste de color, ritmo y acabado visual.",
