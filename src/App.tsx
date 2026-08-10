@@ -80,7 +80,6 @@ export default function App() {
         <section className="hero">
           <div className="container hero-grid">
             <div className="hero-copy reveal">
-              <p className="eyebrow">Social media · vídeos · sites</p>
 
               <h1>Erick Garcia</h1>
 
