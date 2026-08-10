@@ -724,7 +724,9 @@ const finalBlocksByLang = {
     footer: {
       brandLine: 'Social Media e Sites',
       privacy: 'Política de Privacidade',
+      privacyHref: '/politica-de-privacidade',
       terms: 'Termos de Uso',
+      termsHref: '/termos-de-uso',
       location: 'Atendimento em todo o Brasil',
     },
   },
@@ -738,7 +740,9 @@ const finalBlocksByLang = {
     footer: {
       brandLine: 'Social Media and Websites',
       privacy: 'Privacy Policy',
+      privacyHref: '/en/politica-de-privacidade',
       terms: 'Terms of Use',
+      termsHref: '/en/termos-de-uso',
       location: 'Available worldwide',
     },
   },
@@ -752,7 +756,9 @@ const finalBlocksByLang = {
     footer: {
       brandLine: 'Social Media y Sitios Web',
       privacy: 'Política de Privacidad',
+      privacyHref: '/es/politica-de-privacidade',
       terms: 'Términos de Uso',
+      termsHref: '/es/termos-de-uso',
       location: 'Atención internacional',
     },
   },
@@ -1242,8 +1248,8 @@ export default function App() {
               {contact.instagram}
             </a>
             <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            <a href="/politica-de-privacidade">{finalBlocks.footer.privacy}</a>
-            <a href="/termos-de-uso">{finalBlocks.footer.terms}</a>
+            <a href={finalBlocks.footer.privacyHref}>{finalBlocks.footer.privacy}</a>
+            <a href={finalBlocks.footer.termsHref}>{finalBlocks.footer.terms}</a>
             <p>{finalBlocks.footer.location}</p>
           </div>
         </div>
