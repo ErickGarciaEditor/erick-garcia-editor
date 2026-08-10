@@ -139,6 +139,23 @@ const topContentByLang = {
   },
 } as const;
 
+function HeaderLanguageSwitch({ lang }: { lang: AppLang }) {
+  return (
+    <div className="header-language-switch" aria-label="Selecionar idioma">
+      {(['pt', 'en', 'es'] as AppLang[]).map((item) => (
+        <a
+          key={item}
+          href={getLocalizedPath(item)}
+          className={item === lang ? 'is-active' : undefined}
+          aria-current={item === lang ? 'page' : undefined}
+        >
+          {item.toUpperCase()}
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function getCurrentPage() {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
 
@@ -166,6 +183,11 @@ function getCurrentPage() {
 }
 
 type AppLang = 'pt' | 'en' | 'es';
+
+function getLocalizedPath(targetLang: AppLang) {
+  if (targetLang === 'pt') return '/';
+  return `/${targetLang}`;
+}
 
 function getAppLang(): AppLang {
   const firstSegment = window.location.pathname.split('/').filter(Boolean)[0];
@@ -920,6 +942,8 @@ export default function App() {
             <a href="#sobre">{topContent.nav.about}</a>
             <a href="#faq">{topContent.nav.faq}</a>
           </nav>
+
+          <HeaderLanguageSwitch lang={lang} />
 
           <a className="header-cta" href="#orcamento">
             {topContent.quote}
