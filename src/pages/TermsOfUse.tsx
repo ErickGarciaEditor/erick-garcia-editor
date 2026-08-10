@@ -76,7 +76,7 @@ const termsCopy = {
       },
     ],
     contactTitle: 'Contact',
-    contactText: 'For questions about these terms, contact us by email',
+    contactText: 'For questions about these terms, contact by email',
     whatsapp: 'Contact on WhatsApp',
     home: 'Back to home',
   },
