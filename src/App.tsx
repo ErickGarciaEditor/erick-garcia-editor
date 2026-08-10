@@ -83,7 +83,10 @@ export default function App() {
 
               <h1>Erick Garcia</h1>
 
-              <h2>Social media, editor de vídeos e criador de sites.</h2>
+              <h2>
+                <span className="desktop-title">Social media, editor de vídeos e criador de sites.</span>
+                <span className="mobile-title">Social media, vídeos e sites.</span>
+              </h2>
 
               <p className="hero-text">
                 Cuido das suas redes, edito seus vídeos e crio sites para você mostrar melhor o seu

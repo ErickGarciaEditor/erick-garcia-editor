@@ -1696,3 +1696,113 @@ summary {
     max-width: 560px;
   }
 }
+
+/* Etapa 37 — hero pensado para celular e tablet */
+
+.mobile-title {
+  display: none;
+}
+
+@media (min-width: 761px) {
+  .desktop-title {
+    display: inline;
+  }
+}
+
+@media (max-width: 760px) {
+  .desktop-title {
+    display: none;
+  }
+
+  .mobile-title {
+    display: inline;
+  }
+
+  .hero {
+    padding-top: 38px;
+  }
+
+  .hero-grid {
+    gap: 30px;
+  }
+
+  .hero h1 {
+    max-width: none;
+    font-size: clamp(3.7rem, 18vw, 5rem);
+    line-height: 0.88;
+    letter-spacing: -0.075em;
+  }
+
+  .hero h2 {
+    max-width: 12ch;
+    margin-top: 18px;
+    font-size: clamp(2rem, 9.4vw, 2.85rem);
+    line-height: 0.96;
+    letter-spacing: -0.065em;
+  }
+
+  .hero-text {
+    max-width: 31ch;
+    margin-top: 24px;
+    font-size: clamp(1.02rem, 4.55vw, 1.2rem);
+    line-height: 1.52;
+  }
+
+  .hero-actions {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  .button {
+    min-height: 58px;
+    font-size: 1rem;
+  }
+
+  .hero-photo {
+    max-width: min(100%, 390px);
+    margin-top: 8px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1120px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    gap: 42px;
+  }
+
+  .hero h1 {
+    font-size: clamp(4.2rem, 7vw, 5.4rem);
+    line-height: 0.9;
+  }
+
+  .hero h2 {
+    max-width: 18ch;
+    font-size: clamp(1.9rem, 3.6vw, 2.55rem);
+    line-height: 1;
+    white-space: normal;
+  }
+
+  .hero-text {
+    max-width: 46ch;
+  }
+
+  .hero-photo {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: clamp(3.45rem, 17vw, 4.4rem);
+  }
+
+  .hero h2 {
+    max-width: 11ch;
+    font-size: clamp(1.85rem, 8.9vw, 2.45rem);
+  }
+
+  .hero-text {
+    max-width: 30ch;
+    font-size: 1rem;
+  }
+}
