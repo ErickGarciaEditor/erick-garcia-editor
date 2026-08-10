@@ -9,22 +9,136 @@ import { NotFound } from './pages/NotFound';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsOfUse } from './pages/TermsOfUse';
 
-const services = [
-  {
-    title: 'Social Media',
-    text: 'Organizo perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.',
+const topContentByLang = {
+  pt: {
+    brandLine: 'Social Media e Sites',
+    navLabel: 'Navegação principal',
+    nav: {
+      services: 'Serviços',
+      work: 'Trabalhos',
+      projects: 'Sites',
+      pricing: 'Valores',
+      about: 'Sobre',
+      faq: 'FAQ',
+    },
+    quote: 'Pedir orçamento',
+    hero: {
+      desktopTitle: 'Social media, editor de vídeos e criador de sites.',
+      mobileTitle: 'Social media, vídeos e sites.',
+      text: 'Cuido das suas redes, edito seus vídeos e crio sites para você mostrar melhor o seu trabalho e facilitar o contato com novos clientes.',
+      secondaryCta: 'Ver trabalhos',
+    },
+    audience: {
+      label: 'Para quem é',
+      items: ['Empresas', 'Profissionais', 'Criadores', 'Influenciadores', 'Negócios locais'],
+    },
+    services: {
+      eyebrow: 'O que eu faço',
+      title: 'Escolha o que você precisa agora.',
+      text: 'Redes sociais, vídeos e sites podem ser contratados separadamente ou combinados em uma proposta única.',
+      items: [
+        {
+          title: 'Social Media',
+          text: 'Organizo perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.',
+        },
+        {
+          title: 'Edição de vídeos',
+          text: 'Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.',
+        },
+        {
+          title: 'Sites profissionais',
+          text: 'Crio landing pages e sites institucionais para apresentar seu trabalho e levar o cliente até o WhatsApp.',
+        },
+      ],
+    },
   },
-  {
-    title: 'Edição de vídeos',
-    text: 'Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.',
-  },
-  {
-    title: 'Sites profissionais',
-    text: 'Crio landing pages e sites institucionais para apresentar seu trabalho e levar o cliente até o WhatsApp.',
-  },
-];
 
-const audiences = ['Empresas', 'Profissionais', 'Criadores', 'Influenciadores', 'Negócios locais'];
+  en: {
+    brandLine: 'Social Media and Websites',
+    navLabel: 'Main navigation',
+    nav: {
+      services: 'Services',
+      work: 'Work',
+      projects: 'Websites',
+      pricing: 'Pricing',
+      about: 'About',
+      faq: 'FAQ',
+    },
+    quote: 'Request a quote',
+    hero: {
+      desktopTitle: 'Social media, video editing and websites.',
+      mobileTitle: 'Social media, videos and websites.',
+      text: 'I manage your social media, edit your videos and build websites so your work looks better and new clients can contact you more easily.',
+      secondaryCta: 'View work',
+    },
+    audience: {
+      label: 'Who it is for',
+      items: ['Businesses', 'Professionals', 'Creators', 'Influencers', 'Local businesses'],
+    },
+    services: {
+      eyebrow: 'What I do',
+      title: 'Choose what you need right now.',
+      text: 'Social media, videos and websites can be hired separately or combined into one proposal.',
+      items: [
+        {
+          title: 'Social Media',
+          text: 'I organize your profile, calendar, posts, Reels, captions and publishing so your brand stays active online.',
+        },
+        {
+          title: 'Video editing',
+          text: 'I turn recordings into ready-to-post clips, with captions, color adjustment, pacing and visual finishing.',
+        },
+        {
+          title: 'Professional websites',
+          text: 'I create landing pages and business websites to present your work and guide visitors to WhatsApp.',
+        },
+      ],
+    },
+  },
+
+  es: {
+    brandLine: 'Social Media y Sitios Web',
+    navLabel: 'Navegación principal',
+    nav: {
+      services: 'Servicios',
+      work: 'Trabajos',
+      projects: 'Sitios',
+      pricing: 'Precios',
+      about: 'Sobre mí',
+      faq: 'FAQ',
+    },
+    quote: 'Pedir presupuesto',
+    hero: {
+      desktopTitle: 'Social media, edición de videos y sitios web.',
+      mobileTitle: 'Social media, videos y sitios web.',
+      text: 'Cuido tus redes, edito tus videos y creo sitios web para que tu trabajo se vea mejor y nuevos clientes puedan contactarte más fácil.',
+      secondaryCta: 'Ver trabajos',
+    },
+    audience: {
+      label: 'Para quién es',
+      items: ['Empresas', 'Profesionales', 'Creadores', 'Influencers', 'Negocios locales'],
+    },
+    services: {
+      eyebrow: 'Lo que hago',
+      title: 'Elige lo que necesitas ahora.',
+      text: 'Redes sociales, videos y sitios web pueden contratarse por separado o combinarse en una sola propuesta.',
+      items: [
+        {
+          title: 'Social Media',
+          text: 'Organizo tu perfil, calendario, posts, Reels, textos y publicaciones para que tu marca mantenga presencia en redes.',
+        },
+        {
+          title: 'Edición de videos',
+          text: 'Transformo grabaciones en cortes listos para publicar, con subtítulos, ajuste de color, ritmo y acabado visual.',
+        },
+        {
+          title: 'Sitios profesionales',
+          text: 'Creo landing pages y sitios profesionales para presentar tu trabajo y llevar al cliente hasta WhatsApp.',
+        },
+      ],
+    },
+  },
+} as const;
 
 function getCurrentPage() {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
@@ -448,6 +562,7 @@ export default function App() {
   const siteProjectsCopy = siteProjectsByLang[lang];
   const activePricing = pricingByLang[lang];
   const about = aboutByLang[lang];
+  const topContent = topContentByLang[lang];
 
   if (currentPage === 'privacy') {
     return <PrivacyPolicy />;
@@ -468,20 +583,20 @@ export default function App() {
         <div className="container header-row">
           <a className="brand" href="#inicio" aria-label="Erick Garcia">
             <span>Erick Garcia</span>
-            <small>Social Media e Sites</small>
+            <small>{topContent.brandLine}</small>
           </a>
 
-          <nav className="main-nav" aria-label="Navegação principal">
-            <a href="#servicos">Serviços</a>
-            <a href="#trabalhos">Trabalhos</a>
-            <a href="#projetos">Sites</a>
-            <a href="#valores">Valores</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#faq">FAQ</a>
+          <nav className="main-nav" aria-label={topContent.navLabel}>
+            <a href="#servicos">{topContent.nav.services}</a>
+            <a href="#trabalhos">{topContent.nav.work}</a>
+            <a href="#projetos">{topContent.nav.projects}</a>
+            <a href="#valores">{topContent.nav.pricing}</a>
+            <a href="#sobre">{topContent.nav.about}</a>
+            <a href="#faq">{topContent.nav.faq}</a>
           </nav>
 
           <a className="header-cta" href="#orcamento">
-            Pedir orçamento
+            {topContent.quote}
           </a>
         </div>
       </header>
@@ -494,21 +609,18 @@ export default function App() {
               <h1>Erick Garcia</h1>
 
               <h2>
-                <span className="desktop-title">Social media, editor de vídeos e criador de sites.</span>
-                <span className="mobile-title">Social media, vídeos e sites.</span>
+                <span className="desktop-title">{topContent.hero.desktopTitle}</span>
+                <span className="mobile-title">{topContent.hero.mobileTitle}</span>
               </h2>
 
-              <p className="hero-text">
-                Cuido das suas redes, edito seus vídeos e crio sites para você mostrar melhor o seu
-                trabalho e facilitar o contato com novos clientes.
-              </p>
+              <p className="hero-text">{topContent.hero.text}</p>
 
               <div className="hero-actions">
                 <a className="button button-primary" href="#orcamento">
-                  Pedir orçamento
+                  {topContent.quote}
                 </a>
                 <a className="button button-secondary" href="#trabalhos">
-                  Ver trabalhos
+                  {topContent.hero.secondaryCta}
                 </a>
               </div>
             </div>
@@ -537,11 +649,11 @@ export default function App() {
           </div>
         </section>
 
-        <section className="audience-strip" aria-label="Para quem é">
+        <section className="audience-strip" aria-label={topContent.audience.label}>
           <div className="container audience-row">
-            <span>Para quem é</span>
+            <span>{topContent.audience.label}</span>
             <div>
-              {audiences.map((audience) => (
+              {topContent.audience.items.map((audience) => (
                 <strong key={audience}>{audience}</strong>
               ))}
             </div>
@@ -551,16 +663,13 @@ export default function App() {
         <section className="section" id="servicos">
           <div className="container">
             <div className="section-heading">
-              <p className="eyebrow">O que eu faço</p>
-              <h2>Escolha o que você precisa agora.</h2>
-              <p>
-                Redes sociais, vídeos e sites podem ser contratados separadamente ou combinados em
-                uma proposta única.
-              </p>
+              <p className="eyebrow">{topContent.services.eyebrow}</p>
+              <h2>{topContent.services.title}</h2>
+              <p>{topContent.services.text}</p>
             </div>
 
             <div className="service-list">
-              {services.map((service, index) => (
+              {topContent.services.items.map((service, index) => (
                 <article className="service-item" key={service.title}>
                   <span>{String(index + 1).padStart(2, '0')}</span>
                   <h3>{service.title}</h3>
