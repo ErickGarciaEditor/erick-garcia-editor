@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap');
 
 :root {
-  --bg: #070707;
+  --bg: #080605;
   --bg-2: #0d0c0c;
   --surface: #141212;
   --surface-2: #1b1717;
@@ -36,7 +36,7 @@ body {
   font-family: var(--body);
   background:
     radial-gradient(circle at 82% 4%, rgba(214, 59, 48, 0.2), transparent 30rem),
-    linear-gradient(180deg, #070707 0%, #0b0a0a 48%, #070707 100%);
+    linear-gradient(180deg, #080605 0%, #0b0a0a 48%, #080605 100%);
   text-rendering: optimizeLegibility;
 }
 
@@ -1452,7 +1452,7 @@ summary {
   body {
     background:
       radial-gradient(circle at 82% 0%, rgba(214, 59, 48, 0.16), transparent 22rem),
-      linear-gradient(180deg, #070707 0%, #0b0a0a 48%, #070707 100%);
+      linear-gradient(180deg, #080605 0%, #0b0a0a 48%, #080605 100%);
   }
 
   .container {
