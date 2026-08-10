@@ -79,7 +79,6 @@ const translations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
     'O que não entra automaticamente': 'What is not automatically included',
     'Anúncios pagos, gestão de tráfego, resposta de Direct, atendimento ao cliente, cobertura de eventos, deslocamento, gravações extras, alterações ilimitadas, banco de imagens pago, domínio e serviços fora da proposta.': 'Paid ads, traffic management, replying to DMs, customer support, event coverage, travel, extra recordings, unlimited revisions, paid stock images, domain and services outside the proposal are not automatically included.',
 
-    'Sobre': 'About',
     'Sou Erick Garcia.': 'I am Erick Garcia.',
     'Trabalho com social media, edição de vídeos e criação de sites. Comecei na prática, gravando, editando e publicando conteúdos para perfis de grande audiência.': 'I work with social media, video editing and website creation. I started in practice, recording, editing and publishing content for large-audience profiles.',
     'Hoje ajudo empresas, profissionais, criadores e influenciadores a melhorarem a forma como aparecem na internet.': 'Today I help businesses, professionals, creators and influencers improve the way they show up online.',
@@ -178,7 +177,6 @@ const translations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
     'O que não entra automaticamente': 'Lo que no está incluido automáticamente',
     'Anúncios pagos, gestão de tráfego, resposta de Direct, atendimento ao cliente, cobertura de eventos, deslocamento, gravações extras, alterações ilimitadas, banco de imagens pago, domínio e serviços fora da proposta.': 'Anuncios pagados, gestión de tráfico, respuesta de mensajes, atención al cliente, cobertura de eventos, desplazamiento, grabaciones extra, cambios ilimitados, banco de imágenes pago, dominio y servicios fuera de la propuesta no están incluidos automáticamente.',
 
-    'Sobre': 'Sobre mí',
     'Sou Erick Garcia.': 'Soy Erick Garcia.',
     'Trabalho com social media, edição de vídeos e criação de sites. Comecei na prática, gravando, editando e publicando conteúdos para perfis de grande audiência.': 'Trabajo con social media, edición de videos y creación de sitios web. Empecé en la práctica, grabando, editando y publicando contenidos para perfiles de gran audiencia.',
     'Hoje ajudo empresas, profissionais, criadores e influenciadores a melhorarem a forma como aparecem na internet.': 'Hoy ayudo a empresas, profesionales, creadores e influencers a mejorar la forma en que aparecen en internet.',
@@ -205,6 +203,16 @@ const translations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
 };
 
 function detectLanguage(): Lang {
+  const pathLang = window.location.pathname.split('/').filter(Boolean)[0];
+
+  if (pathLang === 'en' || pathLang === 'es') {
+    return pathLang;
+  }
+
+  if (pathLang === 'pt') {
+    return 'pt';
+  }
+
   const saved = localStorage.getItem('site-lang') as Lang | null;
 
   if (saved === 'pt' || saved === 'en' || saved === 'es') {
@@ -219,9 +227,70 @@ function detectLanguage(): Lang {
   return 'pt';
 }
 
+function getCanonicalUrl(lang: Lang) {
+  if (lang === 'en') return 'https://erickgarciaeditor.com.br/en';
+  if (lang === 'es') return 'https://erickgarciaeditor.com.br/es';
+  return 'https://erickgarciaeditor.com.br/';
+}
+
+function updateMetaUrl(lang: Lang) {
+  const url = getCanonicalUrl(lang);
+
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', url);
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', url);
+
+  let alternatePt = document.querySelector('link[hreflang="pt-BR"]');
+  let alternateEn = document.querySelector('link[hreflang="en"]');
+  let alternateEs = document.querySelector('link[hreflang="es"]');
+  let alternateDefault = document.querySelector('link[hreflang="x-default"]');
+
+  if (!alternatePt) {
+    alternatePt = document.createElement('link');
+    alternatePt.setAttribute('rel', 'alternate');
+    alternatePt.setAttribute('hreflang', 'pt-BR');
+    document.head.appendChild(alternatePt);
+  }
+
+  if (!alternateEn) {
+    alternateEn = document.createElement('link');
+    alternateEn.setAttribute('rel', 'alternate');
+    alternateEn.setAttribute('hreflang', 'en');
+    document.head.appendChild(alternateEn);
+  }
+
+  if (!alternateEs) {
+    alternateEs = document.createElement('link');
+    alternateEs.setAttribute('rel', 'alternate');
+    alternateEs.setAttribute('hreflang', 'es');
+    document.head.appendChild(alternateEs);
+  }
+
+  if (!alternateDefault) {
+    alternateDefault = document.createElement('link');
+    alternateDefault.setAttribute('rel', 'alternate');
+    alternateDefault.setAttribute('hreflang', 'x-default');
+    document.head.appendChild(alternateDefault);
+  }
+
+  alternatePt.setAttribute('href', 'https://erickgarciaeditor.com.br/');
+  alternateEn.setAttribute('href', 'https://erickgarciaeditor.com.br/en');
+  alternateEs.setAttribute('href', 'https://erickgarciaeditor.com.br/es');
+  alternateDefault.setAttribute('href', 'https://erickgarciaeditor.com.br/');
+}
+
+function setPathForLanguage(lang: Lang) {
+  const targetPath = lang === 'pt' ? '/' : `/${lang}`;
+  const currentPath = window.location.pathname;
+
+  if (currentPath !== targetPath) {
+    window.history.pushState({}, '', targetPath);
+  }
+}
+
 function applyTranslations(lang: Lang) {
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
   document.body.dataset.lang = lang;
+  updateMetaUrl(lang);
 
   const title =
     lang === 'en'
@@ -302,6 +371,7 @@ export function LanguageLayer() {
 
   useEffect(() => {
     localStorage.setItem('site-lang', lang);
+    setPathForLanguage(lang);
     window.setTimeout(() => applyTranslations(lang), 0);
   }, [lang]);
 
