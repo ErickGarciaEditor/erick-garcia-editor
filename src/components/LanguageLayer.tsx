@@ -25,7 +25,6 @@ const translations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
     'Você pode contratar uma área específica ou montar uma proposta combinando': 'You can hire one specific service or create a proposal combining',
     'redes sociais, vídeos e site.': 'social media, videos and a website.',
 
-    'Social Media': 'Social Media',
     'Organizo seu perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.': 'I organize your profile, content calendar, posts, Reels, captions and publishing so your brand stays active online.',
     'Edição de vídeos': 'Video editing',
     'Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.': 'I turn recordings into ready-to-post clips, with captions, color adjustment, pacing and visual finishing.',
@@ -65,7 +64,6 @@ const translations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
 
     'Edição e Publicação': 'Editing and Publishing',
     'A partir de R$790 por mês': 'From US$500 per month',
-    'Social Media': 'Social Media',
     'A partir de R$1.390 por mês': 'From US$850 per month',
     'Social Media Completo': 'Complete Social Media',
     'A partir de R$2.190 por mês': 'From US$1,250 per month',
@@ -123,7 +121,6 @@ const translations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
     'Você pode contratar uma área específica ou montar uma proposta combinando': 'Puedes contratar un servicio específico o crear una propuesta combinando',
     'redes sociais, vídeos e site.': 'redes sociales, videos y sitio web.',
 
-    'Social Media': 'Social Media',
     'Organizo seu perfil, calendário, posts, Reels, legendas e publicações para sua marca manter presença nas redes.': 'Organizo tu perfil, calendario, posts, Reels, textos y publicaciones para que tu marca mantenga presencia en redes.',
     'Edição de vídeos': 'Edición de videos',
     'Transformo gravações em cortes prontos para postar, com legenda, ajuste de cor, ritmo e acabamento visual.': 'Transformo grabaciones en cortes listos para publicar, con subtítulos, ajuste de color, ritmo y acabado visual.',
@@ -163,7 +160,6 @@ const translations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
 
     'Edição e Publicação': 'Edición y Publicación',
     'A partir de R$790 por mês': 'Desde €450 al mes',
-    'Social Media': 'Social Media',
     'A partir de R$1.390 por mês': 'Desde €1.100 al mes',
     'Social Media Completo': 'Social Media Completo',
     'A partir de R$2.190 por mês': 'Desde €1.100 al mes',
@@ -252,7 +248,6 @@ const extraTranslations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
     'Roteiros, gravação, legendagem inserida nos vídeos, capas, textos das publicações e direcionamento dos horários são fornecidos pelo cliente. A atuação de Erick concentra-se no acabamento visual e na publicação multiplataforma.': 'Scripts, recordings, captions inserted in videos, covers, post texts and posting times are provided by the client. Erick’s work focuses on visual finishing and multi-platform publishing.',
 
     'Edição e Publicação': 'Editing and Publishing',
-    'Social Media': 'Social Media',
     'Social Media Completo': 'Complete Social Media',
     'Landing Page Profissional': 'Professional Landing Page',
     'Site Institucional': 'Business Website',
@@ -315,7 +310,6 @@ const extraTranslations: Record<Exclude<Lang, 'pt'>, Record<string, string>> = {
     'Roteiros, gravação, legendagem inserida nos vídeos, capas, textos das publicações e direcionamento dos horários são fornecidos pelo cliente. A atuação de Erick concentra-se no acabamento visual e na publicação multiplataforma.': 'Guiones, grabación, subtítulos insertados en los videos, portadas, textos de publicaciones y horarios son proporcionados por el cliente. El trabajo de Erick se concentra en el acabado visual y la publicación multiplataforma.',
 
     'Edição e Publicação': 'Edición y Publicación',
-    'Social Media': 'Social Media',
     'Social Media Completo': 'Social Media Completo',
     'Landing Page Profissional': 'Landing Page Profesional',
     'Site Institucional': 'Sitio Profesional',
