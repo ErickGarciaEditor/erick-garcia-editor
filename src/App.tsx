@@ -3,7 +3,7 @@ import { SafeVideo } from './components/SafeVideo';
 import { QuoteForm } from './components/QuoteForm';
 import { cases } from './data/cases';
 import { pricing } from './data/services';
-import { contact, getWhatsappUrl } from './data/contact';
+import { contact } from './data/contact';
 import { siteProjects } from './data/siteProjects';
 import { NotFound } from './pages/NotFound';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';

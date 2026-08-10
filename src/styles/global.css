@@ -919,9 +919,7 @@ video {
   }
 }
 
-/* CTA final mais parecido com uma dobra de fechamento, não um bloco solto */
-@media (min-width: 981px) {
-  /* Correção do hero — texto reto e mais humano */
+/* Correção do hero — texto reto e mais humano */
 @media (min-width: 1100px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1fr) 420px;
