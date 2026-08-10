@@ -1,5 +1,6 @@
 import { SafeImage } from './components/SafeImage';
 import { SafeVideo } from './components/SafeVideo';
+import { LanguageLayer } from './components/LanguageLayer';
 import { QuoteForm } from './components/QuoteForm';
 import { cases } from './data/cases';
 import { pricing } from './data/services';
@@ -54,6 +55,7 @@ export default function App() {
 
   return (
     <div className="site-shell">
+      <LanguageLayer />
       <header className="site-header">
         <div className="container header-row">
           <a className="brand" href="#inicio" aria-label="Erick Garcia">
