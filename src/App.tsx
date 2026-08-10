@@ -28,9 +28,9 @@ const services = [
 const audiences = ['Empresas', 'Profissionais', 'Criadores', 'Influenciadores', 'Negócios locais'];
 
 function getCurrentPage() {
-  const path = window.location.pathname;
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
 
-  if (path === '/') return 'home';
+  if (path === '/' || path === '/pt' || path === '/en' || path === '/es') return 'home';
   if (path === '/politica-de-privacidade') return 'privacy';
   if (path === '/termos-de-uso') return 'terms';
   if (path === '/404') return '404';
