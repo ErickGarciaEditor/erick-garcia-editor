@@ -765,6 +765,151 @@ function applyTranslations(lang: Lang) {
   translateAttributes(lang);
 }
 
+
+const lateFixPairs: Record<Lang, Array<[string, string]>> = {
+  pt: [],
+
+  en: [
+    ['PARA QUEM É', 'WHO IT IS FOR'],
+
+    ['SITE PROFISSIONAL', 'PROFESSIONAL WEBSITE'],
+    ['SITE INSTITUCIONAL', 'BUSINESS WEBSITE'],
+    ['Beleza e estética', 'Beauty and aesthetics'],
+    ['Representações comerciais', 'Commercial representation'],
+
+    ['O projeto precisava apresentar o trabalho de forma mais organizada e facilitar o contato pelo site.', 'The project needed to present the work in a more organized way and make website contact easier.'],
+    ['O cliente precisava ter um site próprio para apresentar sua atuação e facilitar o acesso às informações principais.', 'The client needed a website to present the business and make key information easier to access.'],
+    ['Foi criada uma presença online simples, direta e com domínio próprio para fortalecer a apresentação do negócio.', 'A simple and direct online presence with a custom domain was created to strengthen the business presentation.'],
+    ['A estrutura foi pensada para apresentar o negócio com clareza, usando uma navegação simples e caminho direto para contato.', 'The structure was designed to present the business clearly, with simple navigation and a direct contact path.'],
+    ['Site publicado com estrutura institucional', 'Website published with an institutional structure'],
+
+    ['Domínio próprio', 'Custom domain'],
+    ['Design responsivo', 'Responsive design'],
+    ['Contato direto', 'Direct contact'],
+    ['Apresentação do serviço', 'Service presentation'],
+    ['Site institucional', 'Business website'],
+
+    ['Valores iniciais para você se orientar.', 'Starting prices to help you plan.'],
+    ['O valor final depende do volume de conteúdo, plataformas, gravações e complexidade do projeto.', 'The final price depends on content volume, platforms, recordings and project complexity.'],
+
+    ['Indicado para clientes que já entregam vídeo, capa, legenda e direcionamento. Pode incluir acabamento visual, ajuste de cor, música quando necessária, organização, programação e publicação.', 'For clients who already provide video, cover, caption and direction. May include visual finishing, color adjustment, music when needed, organization, scheduling and publishing.'],
+    ['Pode incluir diagnóstico, planejamento mensal, até 8 conteúdos, edição de Reels, posts ou carrosséis, legendas, calendário e publicação.', 'May include diagnosis, monthly planning, up to 8 pieces of content, Reels editing, posts or carousels, captions, calendar and publishing.'],
+    ['Pode incluir planejamento estratégico, aproximadamente 12 conteúdos mensais, roteiros, Reels, posts, carrosséis, calendário, publicação e relatório.', 'May include strategic planning, around 12 monthly pieces of content, scripts, Reels, posts, carousels, calendar, publishing and report.'],
+    ['Indicado para apresentar uma oferta, serviço, profissional, campanha ou negócio com foco em conversão.', 'Recommended for presenting an offer, service, professional, campaign or business with conversion in mind.'],
+    ['Indicado para empresas e profissionais que precisam apresentar serviços, diferenciais, localização, canais de contato e uma presença digital mais completa.', 'Recommended for businesses and professionals that need to present services, differences, location, contact channels and a stronger digital presence.'],
+    ['Serviço acrescido de deslocamento quando aplicável. Indicado para gravações, fotos, bastidores, eventos curtos ou produção de conteúdo presencial.', 'Quoted separately because location, travel, production time and logistics change from project to project.'],
+
+    ['Sim. O atendimento pode ser remoto para clientes de todo o Brasil.', 'Yes. The service can be remote for clients from any location.'],
+    ['Você envia os materiais, informações e direcionamentos. A partir disso, eu organizo planejamento, edição, publicação ou acompanhamento conforme a proposta.', 'You send the materials, information and direction. From there, I organize planning, editing, publishing or support according to the proposal.'],
+    ['Depende do serviço. Em social media à distância, normalmente o cliente grava e envia os materiais. Em projetos presenciais, a captação pode ser combinada separadamente.', 'It depends on the service. For remote social media, the client usually records and sends the materials. For on-site projects, recording can be quoted separately.'],
+    ['Posso ajudar com roteiros quando isso fizer parte da proposta. Se o cliente já tiver o direcionamento, eu sigo a estratégia enviada.', 'I can help with scripts when that is part of the proposal. If the client already has direction, I follow the strategy provided.'],
+    ['Sim. O trabalho pode envolver Instagram, TikTok, YouTube e outras plataformas conforme a necessidade do projeto.', 'Yes. The work can involve Instagram, TikTok, YouTube and other platforms depending on the project needs.'],
+    ['Não. Não existe garantia de seguidores, visualizações ou vendas. O trabalho melhora organização, consistência, apresentação e publicação do conteúdo.', 'No. There is no guarantee of followers, views or sales. The work improves organization, consistency, presentation and content publishing.'],
+    ['Depende do tipo de site, quantidade de páginas, conteúdo, prazo e recursos necessários. Por isso os valores são iniciais.', 'It depends on the type of website, number of pages, content, deadline and required features. That is why the prices are starting prices.'],
+
+    ['Nome', 'Name'],
+    ['Seu nome', 'Your name'],
+    ['Empresa ou profissão', 'Business or profession'],
+    ['Ex: confeitaria, advogado, criador', 'Ex: bakery, lawyer, creator'],
+    ['Serviço de interesse', 'Service of interest'],
+    ['Escolha uma opção', 'Choose an option'],
+    ['O que você precisa melhorar agora?', 'What do you need to improve right now?'],
+    ['Ex: preciso postar com mais frequência, editar meus vídeos, criar um site ou organizar meu perfil.', 'Ex: I need to post more often, edit my videos, create a website or organize my profile.'],
+    ['Li e aceito a Política de Privacidade.', 'I have read and accept the Privacy Policy.'],
+    ['Ao clicar, o WhatsApp abre com uma mensagem pronta. Você pode revisar antes de enviar.', 'When you click, WhatsApp opens with a ready message. You can review it before sending.']
+  ],
+
+  es: [
+    ['PARA QUEM É', 'PARA QUIÉN ES'],
+
+    ['SITE PROFISSIONAL', 'SITIO PROFESIONAL'],
+    ['SITE INSTITUCIONAL', 'SITIO INSTITUCIONAL'],
+    ['Beleza e estética', 'Belleza y estética'],
+    ['Representações comerciais', 'Representaciones comerciales'],
+
+    ['O projeto precisava apresentar o trabalho de forma mais organizada e facilitar o contato pelo site.', 'El proyecto necesitaba presentar el trabajo de forma más organizada y facilitar el contacto por el sitio.'],
+    ['O cliente precisava ter um site próprio para apresentar sua atuação e facilitar o acesso às informações principais.', 'El cliente necesitaba un sitio propio para presentar su actividad y facilitar el acceso a la información principal.'],
+    ['Foi criada uma presença online simples, direta e com domínio próprio para fortalecer a apresentação do negócio.', 'Se creó una presencia online simple, directa y con dominio propio para fortalecer la presentación del negocio.'],
+    ['A estrutura foi pensada para apresentar o negócio com clareza, usando uma navegação simples e caminho direto para contato.', 'La estructura fue pensada para presentar el negocio con claridad, usando una navegación simple y un camino directo al contacto.'],
+    ['Site publicado com estrutura institucional', 'Sitio publicado con estructura institucional'],
+
+    ['Domínio próprio', 'Dominio propio'],
+    ['Design responsivo', 'Diseño responsivo'],
+    ['Contato direto', 'Contacto directo'],
+    ['Apresentação do serviço', 'Presentación del servicio'],
+    ['Site institucional', 'Sitio institucional'],
+
+    ['Valores iniciais para você se orientar.', 'Precios iniciales para orientarte.'],
+    ['O valor final depende do volume de conteúdo, plataformas, gravações e complexidade do projeto.', 'El valor final depende del volumen de contenido, plataformas, grabaciones y complejidad del proyecto.'],
+
+    ['Indicado para clientes que já entregam vídeo, capa, legenda e direcionamento. Pode incluir acabamento visual, ajuste de cor, música quando necessária, organização, programação e publicação.', 'Para clientes que ya entregan video, portada, texto y dirección. Puede incluir acabado visual, ajuste de color, música cuando sea necesario, organización, programación y publicación.'],
+    ['Pode incluir diagnóstico, planejamento mensal, até 8 conteúdos, edição de Reels, posts ou carrosséis, legendas, calendário e publicação.', 'Puede incluir diagnóstico, planificación mensual, hasta 8 contenidos, edición de Reels, posts o carruseles, textos, calendario y publicación.'],
+    ['Pode incluir planejamento estratégico, aproximadamente 12 conteúdos mensais, roteiros, Reels, posts, carrosséis, calendário, publicação e relatório.', 'Puede incluir planificación estratégica, cerca de 12 contenidos mensuales, guiones, Reels, posts, carruseles, calendario, publicación e informe.'],
+    ['Indicado para apresentar uma oferta, serviço, profissional, campanha ou negócio com foco em conversão.', 'Indicado para presentar una oferta, servicio, profesional, campaña o negocio con foco en conversión.'],
+    ['Indicado para empresas e profissionais que precisam apresentar serviços, diferenciais, localização, canais de contato e uma presença digital mais completa.', 'Indicado para empresas y profesionales que necesitan presentar servicios, diferenciales, ubicación, canales de contacto y una presencia digital más completa.'],
+    ['Serviço acrescido de deslocamento quando aplicável. Indicado para gravações, fotos, bastidores, eventos curtos ou produção de conteúdo presencial.', 'Se cotiza por separado porque ubicación, desplazamiento, tiempo de producción y logística cambian de un proyecto a otro.'],
+
+    ['Sim. O atendimento pode ser remoto para clientes de todo o Brasil.', 'Sí. La atención puede ser remota para clientes de cualquier ubicación.'],
+    ['Você envia os materiais, informações e direcionamentos. A partir disso, eu organizo planejamento, edição, publicação ou acompanhamento conforme a proposta.', 'Envías los materiales, información y dirección. A partir de eso, organizo planificación, edición, publicación o acompañamiento según la propuesta.'],
+    ['Depende do serviço. Em social media à distância, normalmente o cliente grava e envia os materiais. Em projetos presenciais, a captação pode ser combinada separadamente.', 'Depende del servicio. En social media a distancia, normalmente el cliente graba y envía los materiales. En proyectos presenciales, la grabación puede cotizarse por separado.'],
+    ['Posso ajudar com roteiros quando isso fizer parte da proposta. Se o cliente já tiver o direcionamento, eu sigo a estratégia enviada.', 'Puedo ayudar con guiones cuando eso forme parte de la propuesta. Si el cliente ya tiene la dirección, sigo la estrategia enviada.'],
+    ['Sim. O trabalho pode envolver Instagram, TikTok, YouTube e outras plataformas conforme a necessidade do projeto.', 'Sí. El trabajo puede incluir Instagram, TikTok, YouTube y otras plataformas según la necesidad del proyecto.'],
+    ['Não. Não existe garantia de seguidores, visualizações ou vendas. O trabalho melhora organização, consistência, apresentação e publicação do conteúdo.', 'No. No existe garantía de seguidores, visualizaciones o ventas. El trabajo mejora organización, consistencia, presentación y publicación del contenido.'],
+    ['Depende do tipo de site, quantidade de páginas, conteúdo, prazo e recursos necessários. Por isso os valores são iniciais.', 'Depende del tipo de sitio, cantidad de páginas, contenido, plazo y recursos necesarios. Por eso los precios son iniciales.'],
+
+    ['Nome', 'Nombre'],
+    ['Seu nome', 'Tu nombre'],
+    ['Empresa ou profissão', 'Empresa o profesión'],
+    ['Ex: confeitaria, advogado, criador', 'Ej: pastelería, abogado, creador'],
+    ['Serviço de interesse', 'Servicio de interés'],
+    ['Escolha uma opção', 'Elige una opción'],
+    ['O que você precisa melhorar agora?', '¿Qué necesitas mejorar ahora?'],
+    ['Ex: preciso postar com mais frequência, editar meus vídeos, criar um site ou organizar meu perfil.', 'Ej: necesito publicar con más frecuencia, editar mis videos, crear un sitio u organizar mi perfil.'],
+    ['Li e aceito a Política de Privacidade.', 'Leí y acepto la Política de Privacidad.'],
+    ['Ao clicar, o WhatsApp abre com uma mensagem pronta. Você pode revisar antes de enviar.', 'Al hacer clic, WhatsApp se abre con un mensaje listo. Puedes revisarlo antes de enviarlo.']
+  ]
+};
+
+function applyLateFixes(lang: Lang) {
+  if (lang === 'pt') return;
+
+  const pairs = lateFixPairs[lang] ?? [];
+  const map = new Map(pairs.map(([from, to]) => [normalizeText(from), to]));
+
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes: Text[] = [];
+
+  while (walker.nextNode()) {
+    nodes.push(walker.currentNode as Text);
+  }
+
+  for (const node of nodes) {
+    const original = node.textContent ?? '';
+    const normalized = normalizeText(original);
+
+    const translated = map.get(normalized);
+
+    if (translated) {
+      const leading = original.match(/^\s*/)?.[0] ?? '';
+      const trailing = original.match(/\s*$/)?.[0] ?? '';
+      node.textContent = `${leading}${translated}${trailing}`;
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>('input, textarea, option, select, button, a, label').forEach((element) => {
+    ['placeholder', 'value', 'aria-label', 'title'].forEach((attr) => {
+      const current = element.getAttribute(attr);
+      if (!current) return;
+
+      const translated = map.get(normalizeText(current));
+
+      if (translated) {
+        element.setAttribute(attr, translated);
+      }
+    });
+  });
+}
+
 export function LanguageLayer() {
   const [lang, setLang] = useState<Lang>('pt');
 
@@ -776,7 +921,10 @@ export function LanguageLayer() {
     localStorage.setItem('site-lang', lang);
     setPathForLanguage(lang);
 
-    const run = () => applyTranslations(lang);
+    const run = () => {
+      applyTranslations(lang);
+      applyLateFixes(lang);
+    };
 
     window.setTimeout(run, 0);
     window.setTimeout(run, 120);
