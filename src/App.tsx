@@ -102,7 +102,25 @@ export default function App() {
             </div>
 
             <figure className="hero-photo reveal">
-              <img src="/assets/images/erick-hero.webp" alt="Erick Garcia" width="900" height="900" loading="eager" decoding="async" fetchPriority="high" />
+              <picture>
+                <source
+                  media="(max-width: 640px)"
+                  srcSet="/assets/images/erick-hero-480.webp"
+                />
+                <source
+                  media="(max-width: 1024px)"
+                  srcSet="/assets/images/erick-hero-720.webp"
+                />
+                <img
+                  src="/assets/images/erick-hero-960.webp"
+                  alt="Erick Garcia"
+                  width="960"
+                  height="1200"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                />
+              </picture>
             </figure>
           </div>
         </section>
