@@ -743,6 +743,120 @@ const finalBlocksByLang = {
   },
 } as const;
 
+
+const seoByLang = {
+  pt: {
+    htmlLang: 'pt-BR',
+    title: 'Erick Garcia | Social Media, Editor de Vídeos e Criador de Sites',
+    description:
+      'Social media, edição de vídeos e criação de sites para empresas, profissionais, criadores e influenciadores.',
+    url: 'https://erickgarciaeditor.com.br/',
+    locale: 'pt_BR',
+    ogTitle: 'Erick Garcia | Social Media, Vídeos e Sites',
+    ogDescription:
+      'Cuido das suas redes, edito seus vídeos e crio sites para você mostrar melhor o seu trabalho e facilitar o contato.',
+    ogAlt: 'Erick Garcia — Social media, vídeos e sites.',
+  },
+
+  en: {
+    htmlLang: 'en',
+    title: 'Erick Garcia | Social Media, Video Editing and Websites',
+    description:
+      'Social media, video editing and website creation for businesses, professionals, creators and influencers.',
+    url: 'https://erickgarciaeditor.com.br/en',
+    locale: 'en_US',
+    ogTitle: 'Erick Garcia | Social Media, Video Editing and Websites',
+    ogDescription:
+      'I manage your social media, edit your videos and build websites so your work looks better and new clients can contact you more easily.',
+    ogAlt: 'Erick Garcia — social media, video editing and websites.',
+  },
+
+  es: {
+    htmlLang: 'es',
+    title: 'Erick Garcia | Social Media, Edición de Videos y Sitios Web',
+    description:
+      'Social media, edición de videos y creación de sitios web para empresas, profesionales, creadores e influencers.',
+    url: 'https://erickgarciaeditor.com.br/es',
+    locale: 'es_ES',
+    ogTitle: 'Erick Garcia | Social Media, Edición de Videos y Sitios Web',
+    ogDescription:
+      'Cuido tus redes, edito tus videos y creo sitios web para que tu trabajo se vea mejor y nuevos clientes puedan contactarte más fácil.',
+    ogAlt: 'Erick Garcia — social media, videos y sitios web.',
+  },
+} as const;
+
+function setMeta(name: string, content: string) {
+  let element = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute('name', name);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('content', content);
+}
+
+function setProperty(property: string, content: string) {
+  let element = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
+
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute('property', property);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('content', content);
+}
+
+function setLink(rel: string, href: string, hreflang?: string) {
+  const selector = hreflang
+    ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+    : `link[rel="${rel}"]`;
+
+  let element = document.querySelector(selector) as HTMLLinkElement | null;
+
+  if (!element) {
+    element = document.createElement('link');
+    element.setAttribute('rel', rel);
+
+    if (hreflang) {
+      element.setAttribute('hreflang', hreflang);
+    }
+
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('href', href);
+}
+
+function applySeo(lang: AppLang) {
+  const seo = seoByLang[lang];
+  const image = 'https://erickgarciaeditor.com.br/assets/brand/og-erick-garcia.webp';
+
+  document.documentElement.lang = seo.htmlLang;
+  document.title = seo.title;
+
+  setMeta('description', seo.description);
+  setMeta('twitter:title', seo.ogTitle);
+  setMeta('twitter:description', seo.description);
+  setMeta('twitter:image', image);
+
+  setProperty('og:locale', seo.locale);
+  setProperty('og:title', seo.ogTitle);
+  setProperty('og:description', seo.ogDescription);
+  setProperty('og:url', seo.url);
+  setProperty('og:image', image);
+  setProperty('og:image:secure_url', image);
+  setProperty('og:image:alt', seo.ogAlt);
+
+  setLink('canonical', seo.url);
+  setLink('alternate', 'https://erickgarciaeditor.com.br/', 'pt-BR');
+  setLink('alternate', 'https://erickgarciaeditor.com.br/en', 'en');
+  setLink('alternate', 'https://erickgarciaeditor.com.br/es', 'es');
+  setLink('alternate', 'https://erickgarciaeditor.com.br/', 'x-default');
+}
+
 export default function App() {
   const currentPage = getCurrentPage();
   const lang = getAppLang();
@@ -753,6 +867,8 @@ export default function App() {
   const topContent = topContentByLang[lang];
   const casesCopy = casesByLang[lang];
   const finalBlocks = finalBlocksByLang[lang];
+
+  applySeo(lang);
 
   if (currentPage === 'privacy') {
     return <PrivacyPolicy />;
