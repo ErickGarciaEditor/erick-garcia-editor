@@ -102,7 +102,7 @@ export default function App() {
             </div>
 
             <figure className="hero-photo reveal">
-              <img src="/assets/images/erick-hero.webp" alt="Erick Garcia" />
+              <img src="/assets/images/erick-hero.webp" alt="Erick Garcia" width="900" height="900" loading="eager" decoding="async" fetchPriority="high" width="900" height="900" loading="eager" decoding="async" fetchPriority="high" />
             </figure>
           </div>
         </section>

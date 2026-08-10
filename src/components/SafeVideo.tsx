@@ -21,7 +21,7 @@ export function SafeVideo({ src, label }: SafeVideoProps) {
       className="case-video"
       src={src}
       controls
-      preload="metadata"
+      preload="none"
       aria-label={label}
       onError={() => setHasError(true)}
     />

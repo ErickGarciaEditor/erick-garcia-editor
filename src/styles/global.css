@@ -1810,3 +1810,193 @@ video {
     display: grid;
   }
 }
+
+/* Etapa 27 — performance e responsividade mobile */
+
+/* Evita que imagens/vídeos causem layout shift */
+img,
+video {
+  max-width: 100%;
+}
+
+/* Hero mais controlado no celular */
+@media (max-width: 760px) {
+  .hero {
+    min-height: auto;
+    padding-top: 96px;
+    padding-bottom: 52px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.2rem, 17vw, 5.4rem);
+    line-height: 0.9;
+    letter-spacing: -0.075em;
+  }
+
+  .hero h2 {
+    max-width: 100%;
+    font-size: clamp(1.35rem, 6vw, 2rem);
+    line-height: 1.05;
+  }
+
+  .hero-text {
+    max-width: 34rem;
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 340px;
+  }
+
+  .hero-photo,
+  .hero-visual,
+  .hero-image {
+    max-width: min(100%, 360px);
+    margin-inline: auto;
+  }
+}
+
+/* Cases no celular: vídeo legível, prints abaixo, sem layout apertado */
+@media (max-width: 760px) {
+  .case-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .case-content {
+    max-width: 100%;
+  }
+
+  .case-content h3 {
+    font-size: clamp(2.2rem, 12vw, 3.6rem);
+    line-height: 0.95;
+  }
+
+  .case-block ul {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .case-media-panel {
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+    display: grid;
+    gap: 14px;
+  }
+
+  .case-video-card {
+    padding: 10px;
+  }
+
+  .case-video {
+    width: 100%;
+    max-height: 68vh;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+  }
+
+  .case-metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 9px;
+  }
+
+  .metric-card img,
+  .metric-card .media-fallback {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .metric-card--wide {
+    grid-column: 1 / -1;
+  }
+
+  .metric-card--wide img,
+  .metric-card--wide .media-fallback {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 460px) {
+  .case-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .case-media-panel {
+    max-width: 320px;
+  }
+}
+
+/* Projetos de sites mais leves no celular */
+@media (max-width: 760px) {
+  .site-projects-grid {
+    gap: 18px;
+  }
+
+  .site-project-preview {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .desktop-preview {
+    aspect-ratio: 16 / 10;
+  }
+
+  .mobile-preview {
+    width: min(100%, 140px);
+  }
+}
+
+/* Reduz custo visual no mobile */
+@media (max-width: 760px) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .price-card:hover,
+  .case-card:hover {
+    transform: none;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* Respeita redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
