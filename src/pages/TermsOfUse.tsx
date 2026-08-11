@@ -3,6 +3,13 @@ import { contact, getWhatsappUrl } from '../data/contact';
 type LegalLang = 'pt' | 'en' | 'es';
 
 function getLegalLang(): LegalLang {
+  const params = new URLSearchParams(window.location.search);
+  const queryLang = params.get('lang');
+
+  if (queryLang === 'en' || queryLang === 'es') {
+    return queryLang;
+  }
+
   const firstSegment = window.location.pathname.split('/').filter(Boolean)[0];
 
   if (firstSegment === 'en' || firstSegment === 'es') {
@@ -119,7 +126,7 @@ const termsCopy = {
 export function TermsOfUse() {
   const lang = getLegalLang();
   const copy = termsCopy[lang];
-  const homePath = lang === 'pt' ? '/' : `/${lang}`;
+  const homePath = lang === 'pt' ? '/' : `/?lang=${lang}`;
 
   return (
     <main className="legal-page">

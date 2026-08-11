@@ -140,7 +140,12 @@ const topContentByLang = {
 } as const;
 
 function getCurrentPage() {
+  const params = new URLSearchParams(window.location.search);
+  const queryPage = params.get('page');
   const path = window.location.pathname.replace(/\/$/, '') || '/';
+
+  if (queryPage === 'privacy') return 'privacy';
+  if (queryPage === 'terms') return 'terms';
 
   if (path === '/' || path === '/pt' || path === '/en' || path === '/es') return 'home';
 
@@ -168,6 +173,13 @@ function getCurrentPage() {
 type AppLang = 'pt' | 'en' | 'es';
 
 function getAppLang(): AppLang {
+  const params = new URLSearchParams(window.location.search);
+  const queryLang = params.get('lang');
+
+  if (queryLang === 'en' || queryLang === 'es') {
+    return queryLang;
+  }
+
   const firstSegment = window.location.pathname.split('/').filter(Boolean)[0];
 
   if (firstSegment === 'en' || firstSegment === 'es') {
@@ -724,9 +736,9 @@ const finalBlocksByLang = {
     footer: {
       brandLine: 'Social Media e Sites',
       privacy: 'Política de Privacidade',
-      privacyHref: '/politica-de-privacidade',
+      privacyHref: '/?page=privacy',
       terms: 'Termos de Uso',
-      termsHref: '/termos-de-uso',
+      termsHref: '/?page=terms',
       location: 'Atendimento em todo o Brasil',
     },
   },
@@ -740,9 +752,9 @@ const finalBlocksByLang = {
     footer: {
       brandLine: 'Social Media and Websites',
       privacy: 'Privacy Policy',
-      privacyHref: '/en/politica-de-privacidade',
+      privacyHref: '/?lang=en&page=privacy',
       terms: 'Terms of Use',
-      termsHref: '/en/termos-de-uso',
+      termsHref: '/?lang=en&page=terms',
       location: 'Available worldwide',
     },
   },
@@ -756,9 +768,9 @@ const finalBlocksByLang = {
     footer: {
       brandLine: 'Social Media y Sitios Web',
       privacy: 'Política de Privacidad',
-      privacyHref: '/es/politica-de-privacidade',
+      privacyHref: '/?lang=es&page=privacy',
       terms: 'Términos de Uso',
-      termsHref: '/es/termos-de-uso',
+      termsHref: '/?lang=es&page=terms',
       location: 'Atención internacional',
     },
   },
@@ -784,7 +796,7 @@ const seoByLang = {
     title: 'Erick Garcia | Social Media, Video Editing and Websites',
     description:
       'Social media, video editing and website creation for businesses, professionals, creators and influencers.',
-    url: 'https://erickgarciaeditor.com.br/en',
+    url: 'https://erickgarciaeditor.com.br/?lang=en',
     locale: 'en_US',
     ogTitle: 'Erick Garcia | Social Media, Video Editing and Websites',
     ogDescription:
@@ -797,7 +809,7 @@ const seoByLang = {
     title: 'Erick Garcia | Social Media, Edición de Videos y Sitios Web',
     description:
       'Social media, edición de videos y creación de sitios web para empresas, profesionales, creadores e influencers.',
-    url: 'https://erickgarciaeditor.com.br/es',
+    url: 'https://erickgarciaeditor.com.br/?lang=es',
     locale: 'es_ES',
     ogTitle: 'Erick Garcia | Social Media, Edición de Videos y Sitios Web',
     ogDescription:
@@ -873,8 +885,8 @@ function applySeo(lang: AppLang) {
 
   setLink('canonical', seo.url);
   setLink('alternate', 'https://erickgarciaeditor.com.br/', 'pt-BR');
-  setLink('alternate', 'https://erickgarciaeditor.com.br/en', 'en');
-  setLink('alternate', 'https://erickgarciaeditor.com.br/es', 'es');
+  setLink('alternate', 'https://erickgarciaeditor.com.br/?lang=en', 'en');
+  setLink('alternate', 'https://erickgarciaeditor.com.br/?lang=es', 'es');
   setLink('alternate', 'https://erickgarciaeditor.com.br/', 'x-default');
 }
 
@@ -926,9 +938,9 @@ export default function App() {
               </summary>
 
               <div className="language-menu__list">
-                {lang !== 'pt' && <a href="/">Português</a>}
-                {lang !== 'en' && <a href="/en">English</a>}
-                {lang !== 'es' && <a href="/es">Español</a>}
+                {lang !== 'pt' && <a href="/?lang=pt">Português</a>}
+                {lang !== 'en' && <a href="/?lang=en">English</a>}
+                {lang !== 'es' && <a href="/?lang=es">Español</a>}
               </div>
             </details>
           </nav>
