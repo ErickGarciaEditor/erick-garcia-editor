@@ -340,27 +340,29 @@ export function QuoteForm() {
       <fieldset className="send-method-group">
         <legend>{copy.fields.sendMethod}</legend>
 
-        <label className="radio-label">
-          <input
-            type="radio"
-            name="sendMethod"
-            value="whatsapp"
-            checked={form.sendMethod === 'whatsapp'}
-            onChange={() => updateField('sendMethod', 'whatsapp')}
-          />
-          <span>{copy.fields.sendWhatsapp}</span>
-        </label>
+        <div className="send-method-options">
+          <label className="radio-card">
+            <input
+              type="radio"
+              name="sendMethod"
+              value="whatsapp"
+              checked={form.sendMethod === 'whatsapp'}
+              onChange={() => updateField('sendMethod', 'whatsapp')}
+            />
+            <span>{copy.fields.sendWhatsapp}</span>
+          </label>
 
-        <label className="radio-label">
-          <input
-            type="radio"
-            name="sendMethod"
-            value="email"
-            checked={form.sendMethod === 'email'}
-            onChange={() => updateField('sendMethod', 'email')}
-          />
-          <span>{copy.fields.sendEmail}</span>
-        </label>
+          <label className="radio-card">
+            <input
+              type="radio"
+              name="sendMethod"
+              value="email"
+              checked={form.sendMethod === 'email'}
+              onChange={() => updateField('sendMethod', 'email')}
+            />
+            <span>{copy.fields.sendEmail}</span>
+          </label>
+        </div>
       </fieldset>
 
       <label className="checkbox-label">
