@@ -1,6 +1,6 @@
 export const contact = {
   whatsappNumber: '5543988632851',
-  email: 'erickgarciaeditor@gmail.com',
+  email: 'contato@erickgarciaeditor.com.br',
   instagram: '@erickgarciaeditor',
   instagramUrl: 'https://www.instagram.com/erickgarciaeditor/',
 };
@@ -13,4 +13,14 @@ export function getWhatsappUrl(message?: string) {
   }
 
   return `${base}?text=${encodeURIComponent(message)}`;
+}
+
+
+export function getMailtoUrl(subject: string, body: string) {
+  const params = new URLSearchParams({
+    subject,
+    body,
+  });
+
+  return `mailto:${contact.email}?${params.toString()}`;
 }

@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { getWhatsappUrl } from '../data/contact';
+import { getMailtoUrl, getWhatsappUrl } from '../data/contact';
 
 type Lang = 'pt' | 'en' | 'es';
+
+type SendMethod = 'whatsapp' | 'email';
 
 type FormState = {
   name: string;
@@ -11,6 +13,7 @@ type FormState = {
   service: string;
   message: string;
   privacy: boolean;
+  sendMethod: SendMethod;
 };
 
 const initialState: FormState = {
@@ -21,9 +24,17 @@ const initialState: FormState = {
   service: '',
   message: '',
   privacy: false,
+  sendMethod: 'whatsapp',
 };
 
 function getFormLang(): Lang {
+  const params = new URLSearchParams(window.location.search);
+  const queryLang = params.get('lang');
+
+  if (queryLang === 'en' || queryLang === 'es') {
+    return queryLang;
+  }
+
   const firstSegment = window.location.pathname.split('/').filter(Boolean)[0];
 
   if (firstSegment === 'en' || firstSegment === 'es') {
@@ -56,8 +67,11 @@ const formCopy = {
       messagePlaceholder:
         'Ex: preciso postar com mais frequência, editar meus vídeos, criar um site ou organizar meu perfil.',
       privacy: 'Li e aceito a Política de Privacidade.',
-      submit: 'Enviar pelo WhatsApp',
-      note: 'Ao clicar, o WhatsApp abre com uma mensagem pronta. Você pode revisar antes de enviar.',
+      submit: 'Enviar mensagem',
+      sendMethod: 'Como prefere enviar?',
+      sendWhatsapp: 'WhatsApp',
+      sendEmail: 'E-mail',
+      note: 'Ao clicar, o WhatsApp ou o app de e-mail abre com uma mensagem pronta. Você pode revisar antes de enviar.',
     },
     options: [
       'Social Media',
@@ -101,8 +115,11 @@ const formCopy = {
       messagePlaceholder:
         'Ex: I need to post more often, edit my videos, create a website or organize my profile.',
       privacy: 'I have read and accept the Privacy Policy.',
-      submit: 'Send via WhatsApp',
-      note: 'When you click, WhatsApp opens with a ready message. You can review it before sending.',
+      submit: 'Send message',
+      sendMethod: 'How would you like to send it?',
+      sendWhatsapp: 'WhatsApp',
+      sendEmail: 'Email',
+      note: 'When you click, WhatsApp or your email app opens with a ready message. You can review it before sending.',
     },
     options: [
       'Social Media',
@@ -146,8 +163,11 @@ const formCopy = {
       messagePlaceholder:
         'Ej: necesito publicar con más frecuencia, editar mis videos, crear un sitio u organizar mi perfil.',
       privacy: 'Leí y acepto la Política de Privacidad.',
-      submit: 'Enviar por WhatsApp',
-      note: 'Al hacer clic, WhatsApp se abre con un mensaje listo. Puedes revisarlo antes de enviarlo.',
+      submit: 'Enviar mensaje',
+      sendMethod: '¿Cómo prefieres enviarlo?',
+      sendWhatsapp: 'WhatsApp',
+      sendEmail: 'Email',
+      note: 'Al hacer clic, WhatsApp o tu app de email se abre con un mensaje listo. Puedes revisarlo antes de enviarlo.',
     },
     options: [
       'Social Media',
@@ -222,6 +242,18 @@ export function QuoteForm() {
       '',
       `${labels.message}: ${form.message || labels.empty}`,
     ].join('\n');
+
+    if (form.sendMethod === 'email') {
+      const subject =
+        lang === 'pt'
+          ? 'Pedido de orçamento pelo site'
+          : lang === 'en'
+            ? 'Quote request from website'
+            : 'Solicitud de presupuesto desde el sitio';
+
+      window.location.href = getMailtoUrl(subject, message);
+      return;
+    }
 
     window.open(getWhatsappUrl(message), '_blank', 'noopener,noreferrer');
   }
@@ -304,6 +336,32 @@ export function QuoteForm() {
           onChange={(event) => updateField('message', event.target.value)}
         />
       </label>
+
+      <fieldset className="send-method-group">
+        <legend>{copy.fields.sendMethod}</legend>
+
+        <label className="radio-label">
+          <input
+            type="radio"
+            name="sendMethod"
+            value="whatsapp"
+            checked={form.sendMethod === 'whatsapp'}
+            onChange={() => updateField('sendMethod', 'whatsapp')}
+          />
+          <span>{copy.fields.sendWhatsapp}</span>
+        </label>
+
+        <label className="radio-label">
+          <input
+            type="radio"
+            name="sendMethod"
+            value="email"
+            checked={form.sendMethod === 'email'}
+            onChange={() => updateField('sendMethod', 'email')}
+          />
+          <span>{copy.fields.sendEmail}</span>
+        </label>
+      </fieldset>
 
       <label className="checkbox-label">
         <input
