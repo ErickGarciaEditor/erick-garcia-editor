@@ -17,10 +17,8 @@ export function getWhatsappUrl(message?: string) {
 
 
 export function getMailtoUrl(subject: string, body: string) {
-  const params = new URLSearchParams({
-    subject,
-    body,
-  });
+  const encodedSubject = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(body);
 
-  return `mailto:${contact.email}?${params.toString()}`;
+  return `mailto:${contact.email}?subject=${encodedSubject}&body=${encodedBody}`;
 }
