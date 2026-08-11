@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getMailtoUrl, getWhatsappUrl } from '../data/contact';
+import { getGmailComposeUrl, getWhatsappUrl } from '../data/contact';
 
 type Lang = 'pt' | 'en' | 'es';
 
@@ -251,7 +251,7 @@ export function QuoteForm() {
             ? 'Quote request from website'
             : 'Solicitud de presupuesto desde el sitio';
 
-      window.location.href = getMailtoUrl(subject, message);
+      window.open(getGmailComposeUrl(subject, message), '_blank', 'noopener,noreferrer');
       return;
     }
 

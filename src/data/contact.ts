@@ -22,3 +22,16 @@ export function getMailtoUrl(subject: string, body: string) {
 
   return `mailto:${contact.email}?subject=${encodedSubject}&body=${encodedBody}`;
 }
+
+
+export function getGmailComposeUrl(subject: string, body: string) {
+  const params = new URLSearchParams({
+    view: 'cm',
+    fs: '1',
+    to: contact.email,
+    su: subject,
+    body,
+  });
+
+  return `https://mail.google.com/mail/?${params.toString().replace(/\+/g, '%20')}`;
+}
