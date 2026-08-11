@@ -921,16 +921,16 @@ export default function App() {
             <a href="#faq">{topContent.nav.faq}</a>
 
           <details className="language-menu">
-            <summary>
-              {lang === 'pt' ? 'Português' : lang === 'en' ? 'English' : 'Español'}
-            </summary>
+              <summary>
+                {lang === 'pt' ? 'Português' : lang === 'en' ? 'English' : 'Español'}
+              </summary>
 
-            <div className="language-menu__list">
-              {lang !== 'pt' && <a href="/">Português</a>}
-              {lang !== 'en' && <a href="/en">English</a>}
-              {lang !== 'es' && <a href="/es">Español</a>}
-            </div>
-          </details>
+              <div className="language-menu__list">
+                {lang !== 'pt' && <a href="/">Português</a>}
+                {lang !== 'en' && <a href="/en">English</a>}
+                {lang !== 'es' && <a href="/es">Español</a>}
+              </div>
+            </details>
           </nav>
 
           <a className="header-cta" href="#orcamento">
