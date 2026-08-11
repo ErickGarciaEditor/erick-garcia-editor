@@ -2154,3 +2154,8 @@ summary {
     font-size: 0.72rem;
   }
 }
+
+/* Força a foto nova no hero sem alterar o JavaScript */
+img[src*="erick-hero"] {
+  content: url("/assets/images/erick-hero-nova-960.webp");
+}
