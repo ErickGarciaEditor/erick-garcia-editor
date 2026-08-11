@@ -955,14 +955,14 @@ export default function App() {
               <picture>
                 <source
                   media="(max-width: 640px)"
-                  srcSet="/assets/images/erick-hero-480.webp"
+                  srcSet="/assets/images/erick-hero-nova-480.webp"
                 />
                 <source
                   media="(max-width: 1024px)"
-                  srcSet="/assets/images/erick-hero-720.webp"
+                  srcSet="/assets/images/erick-hero-nova-720.webp"
                 />
                 <img
-                  src="/assets/images/erick-hero-960.webp"
+                  src="/assets/images/erick-hero-nova-960.webp"
                   alt="Erick Garcia"
                   width="960"
                   height="1200"
