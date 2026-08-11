@@ -2159,3 +2159,82 @@ summary {
 img[src*="erick-hero"] {
   content: url("/assets/images/erick-hero-nova-960.webp");
 }
+
+.language-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.language-menu summary {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0 0.82rem;
+  border: 1px solid rgba(246, 238, 232, 0.14);
+  border-radius: 999px;
+  background: rgba(246, 238, 232, 0.05);
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 850;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.language-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.language-menu summary::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  opacity: 0.8;
+  transition: transform 0.16s ease;
+}
+
+.language-menu[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.language-menu__list {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 90;
+  min-width: 150px;
+  padding: 0.45rem;
+  border: 1px solid rgba(246, 238, 232, 0.14);
+  border-radius: 16px;
+  background: rgba(8, 6, 5, 0.96);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+}
+
+.language-menu__list a {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 0.72rem;
+  border-radius: 12px;
+  color: rgba(246, 238, 232, 0.78);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.language-menu__list a:hover,
+.language-menu__list a:focus-visible {
+  color: var(--text);
+  background: rgba(216, 160, 120, 0.14);
+}
+
+@media (max-width: 1120px) {
+  .language-menu {
+    display: none;
+  }
+}
